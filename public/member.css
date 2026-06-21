@@ -1,0 +1,95 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f4f7fc;
+  padding:40px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+h1{
+  text-align:center;
+  margin-bottom:25px;
+  color:#333;
+}
+
+form{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  margin-bottom:30px;
+}
+
+input, select{
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  outline:none;
+}
+
+button{
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td{
+  padding:15px;
+  text-align:left;
+  border-bottom:1px solid #eee;
+}
+
+th{
+  background:#2563eb;
+  color:white;
+}
+
+.delete-btn{
+  background:#ef4444;
+  padding:8px 12px;
+}
+
+.delete-btn:hover{
+  background:#dc2626;
+}
+
+.table-container{
+  overflow-x:auto;
+}
+.amount{
+  margin-top: 2%;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.search{
+  margin-top: 5%;
+  margin-bottom: 3%;
+  justify-content: center;
+  display: flex;
+  gap: 0.5%;
+}

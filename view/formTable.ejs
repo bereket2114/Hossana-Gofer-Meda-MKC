@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership Management</title>
+
+  <link rel="stylesheet" href="member.css">
+</head>
+<body>
+  <div class="search">
+    <input type="text" placeholder="Search by name">
+    <button type="submit">Search</button>
+  </div>
+  <div class="container">
+
+    <h1>Membership Management</h1>
+
+    <form action="/memberList/addMember" method="post" id="memberForm">
+
+      <input type="text" name="fullName" id="name" placeholder="Full Name" required>
+
+      <input type="number" name="age" min="0" id="age" placeholder="Age" required>
+
+      <select id="sex" name="sex" required>
+        <option value="">Select Sex</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+
+      <input type="text" name="sector" id="sector" placeholder="Sector" required>
+
+      <button type="submit">Add Member</button>
+
+    </form>
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th style="background: green;">Name</th>
+            <th style="background: green;">Age</th>
+            <th style="background: green;">Sex</th>
+            <th style="background: green;">Phone</th>
+            <th style="background: green;">Sector</th>
+            <th style="background: green;">Remove Member</th>
+          </tr>
+        </thead>
+
+        <tbody id="memberList">
+          <% members.forEach(list=> { %>
+          <tr class="memberList" data-id="<%= list._id%>">
+            <td><%= list.memFullName.toUpperCase()%></td>
+            <td><%= list.memAge%></td>
+            <td><%= list.memSex%></td>
+            <td><%= list.memPhone%></td>
+            <td><%= list.memSector.toUpperCase()%></td>
+            <td>Delete</td> <%# This sign is for ejs template comment we used %>
+          </tr>
+          <% }) %>
+        </tbody>
+
+      </table>
+     
+    </div>
+    <span class="amount">Total Amount Of members: <%= amount%></span>
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
