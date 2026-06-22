@@ -81,15 +81,59 @@ th{
 .table-container{
   overflow-x:auto;
 }
+
 .amount{
-  margin-top: 2%;
-  letter-spacing: 1px;
-  font-weight: 500;
+  text-align: center;
+  padding: 15px;
+  margin-top: 3%;
+ /* font-weight: bold black 500;  */
 }
+
+.amountLabel{
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+  margin: 0;
+  /* color: #1d4ed8;
+  border-bottom: 2px solid black;
+  border-width: 50%; */
+}
+
+.totalNum{
+  font-size: 32px;
+  font-weight: bold;
+  color: #3b5998;
+  margin: 5px 0 0 0;
+}
+
 .search{
   margin-top: 5%;
   margin-bottom: 3%;
   justify-content: center;
   display: flex;
   gap: 0.5%;
+}
+
+td, th{
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.trashBtn{
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.trashBtn:hover{
+  background-color: #dc3545;
+  color: white;
+}
+td:last-child{    /* this :last_child selector is given directly from the CSS and i used it to target my tag in the table and am saying from all td in my body table target the last-child of them */
+  text-align: center;
 }

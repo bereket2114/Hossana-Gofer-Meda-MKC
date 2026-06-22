@@ -14,7 +14,7 @@
   </div>
   <div class="container">
 
-    <h1>Membership Management</h1>
+    <h1>G/M/MKC Membership Management</h1>
 
     <form action="/memberList/addMember" method="post" id="memberForm">
 
@@ -28,7 +28,7 @@
         <option>Female</option>
       </select>
 
-      <input type="text" name="phone" id="phone" placeholder="Phone Number" required>
+      <input type="text" minlength="10" maxlength="10" name="phone" id="phone" placeholder="Phone Number" required>
 
       <input type="text" name="sector" id="sector" placeholder="Sector" required>
 
@@ -59,7 +59,7 @@
             <td><%= list.memSex%></td>
             <td><%= list.memPhone%></td>
             <td><%= list.memSector.toUpperCase()%></td>
-            <td>Delete</td> <%# This sign is for ejs template comment we used %>
+            <td class="trash"><button class="trashBtn">Delete</button></td>    <%# This sign is for ejs template comment we used %>
           </tr>
           <% }) %>
         </tbody>
@@ -67,7 +67,11 @@
       </table>
      
     </div>
-    <span class="amount">Total Amount Of members: <%= amount%></span>
+    <div class="amount">
+      <p class="amountLabel">TOTAL MEMBERS</p>
+      <p class="totalNum"> <%= amount%> </p>
+    </div>
+    
   </div>
 
   <script src="main.js"></script>

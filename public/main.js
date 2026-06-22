@@ -1,3 +1,27 @@
+const trash = document.querySelectorAll('.trash')
+
+Array.from(trash).forEach(e=> e.addEventListener('click', deleteMember))
+
+async function deleteMember(){
+  const nearest = this.closest('tr')
+  const removeOne = nearest.dataset.id
+
+  try{
+    const result = await fetch('/memberList/removeMembers', {
+      method: 'delete',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        'deleteMem' : removeOne
+      })
+    })
+    const data = await result.json()
+    console.log(data)
+    location.reload()
+  } catch(err){
+    console.error(err)
+  }
+}
+
 /* const API = "http://localhost:5000/api/members";
 
 const memberForm = document.getElementById("memberForm");

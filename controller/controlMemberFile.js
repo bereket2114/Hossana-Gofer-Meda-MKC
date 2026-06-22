@@ -27,25 +27,25 @@ module.exports = {
             console.error(err)
             res.status(500).send("Error saving to database.")
         }
-    }
+    },
 
 //This logic could wait for a bit longer b/c i need to update the members age automatically on their barthDATE, and may be i want to update their phone number!!
 
     /*changeData: async (req,res)=>{
         try{
-            await dataBase.findOneAndUpdate() 
+            await dataBase.findOneAndUpdate({_id:req.body.}) 
             res.json('Update successful!')
         }
        
     },*/
-    /*removeMember: async (req,res)=>{
+    deleteMembers: async (req,res)=>{
         try{
-            await dataBase.findOneAndDelete(_id:req.body.)
+            await dataBase.findOneAndDelete({_id:req.body.deleteMem})
             console.log('Member Removed')
             res.json('Member Removed Successfully!')
+
         } catch(err){
             console.error(err)
-        }
-        
-    } */
+        }   
+    }
 }
