@@ -3,8 +3,10 @@ const router = express.Router()
 const memberControl = require('../controller/controlMemberFile')
 
 router.get('/',memberControl.seeMember)
+router.get('/search', memberControl.searchAndGetByName)
 router.post('/addMember', memberControl.createOne)
 //router.put('/updateData', memberControl.changeData)
 router.delete('/removeMembers', memberControl.deleteMembers)
+
 
 module.exports = router

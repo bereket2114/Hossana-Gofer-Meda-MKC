@@ -4,11 +4,25 @@ module.exports = {
     seeMember: async (req,res)=>{
         try{
             console.log("Form Data Received:",req.body)
-            const memberList = await dataBase.find()
+            const memberList = await dataBase.find().sort({memFullName:1})
             const totalAmount = await dataBase.countDocuments({completed:true})
             res.render(path.join(__dirname,'..','view','formTable.ejs'),{members: memberList, amount:totalAmount})
         } catch(err){
             console.error(err)
+        }
+    },
+
+    // if some one specifically searching someone this function could help him
+
+    searchAndGetByName: async (req,res)=>{
+        try{
+            const searchName = req.query.name
+            const users = await dataBase.find({
+            memFullName:{$regex: searchName, $options: "i"}
+        })
+            res.json(users)
+        } catch(err){
+            res.status(500).send(err.message)
         }
     },
     createOne: async (req,res)=>{
@@ -48,4 +62,5 @@ module.exports = {
             console.error(err)
         }   
     }
+    
 }

@@ -1,26 +1,114 @@
-const trash = document.querySelectorAll('.trash')
+// 1. Listen for clicks on the entire table body instead of individual buttons
 
-Array.from(trash).forEach(e=> e.addEventListener('click', deleteMember))
+const tableBody = document.querySelector('#memberList');
 
-async function deleteMember(){
-  const nearest = this.closest('tr')
-  const removeOne = nearest.dataset.id
+tableBody.addEventListener('click', (e) => {
+    // Check if what I clicked is a trash button (or inside one)
+    const trashBtn = e.target.closest('.trash');
+    if (trashBtn) {
+        deleteMember(trashBtn);
+    }
+});
 
+// 2. Adjust the function to accept the clicked button element
+async function deleteMember(buttonElement){
+    const nearest = buttonElement.closest('tr');
+    const removeOne = nearest.dataset.id;
+    
+    // Quick confirmation safety check
+    if (!confirm("Are you sure you want to delete this member?")) return;
+
+    try{
+        const result = await fetch('/memberList/removeMembers', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'deleteMem' : removeOne
+            })
+        })
+        const data = await result.json()
+        console.log(data)
+        location.reload() // This reloads and resets the table
+    } catch(err){
+        console.error(err)
+    }
+}
+
+// i don't use EvenListener because i use onClick attribute in EJs template button
+async function searchMember(){
+  const keyboard = document.querySelector('#searchInput').value
+  const tableBody = document.querySelector('#memberList')
+
+//if search input is empty, i might want to reload the page to show everyone again
+  if(!keyboard.trim()){
+    location.reload();
+    return;
+  }
   try{
-    const result = await fetch('/memberList/removeMembers', {
-      method: 'delete',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        'deleteMem' : removeOne
+    const respond = await fetch(`/memberList/search?name=${keyboard}`)
+    const data = await respond.json()
+
+    //Clear the current table content
+    tableBody.innerHTML = "";
+    if(data.length === 0){
+      tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 20px;"> No matching members found. </td> </tr>`;
+      return;
+    }
+      // loop through the search results and dynamically build rows match my columns
+
+      data.forEach(user => {
+        const row =`
+        <tr>
+          <td>${user.memFullName}</td>
+          <td>${user.memAge}</td>
+          <td>${user.memSex}</td>
+          <td>${user.memPhone}</td>
+          <td>${user.memSector}</td>
+          <td><button class="trash">Delete</button></td>
+        </tr> `
+        tableBody.insertAdjacentHTML('beforeend', row)
       })
-    })
-    const data = await result.json()
     console.log(data)
-    location.reload()
+
   } catch(err){
     console.error(err)
   }
 }
+
+/* async function deleteMember(id) {
+  if(!confirm("Are you sure you want to delete this member?")){
+    return;
+  }
+  try{
+    const respond = await fetch('/memberList/removeMembers',{
+      method: 'delete',
+      headers:'Content-Type': 'application/json',
+      body: JSON.stringify({
+        id: id   // sending the id in the request body
+      })
+    })
+    if(respond.ok){
+      //1.Remove the row visually from the table
+      const rowElement = document.getElementById(`row-${id}`)
+      if(rowElement){
+        rowElement.remove()
+        //Automatically update total member count Element
+        const totalCount = document.getElementById('totalCounter')
+        if(totalCount){
+          let currentCount = parseInt(totalCount.innerText)
+          totalCount.innerText = currentCount - 1
+        } else{
+          alert("Failed to delete the member from database.")
+        }
+      }
+    }
+  } catch(err){
+    console.error('Error deleting member:', err)
+  }
+} */
+
+
+// This down here is a code for my form that send the entire document content from that form(we're not using form to back-end server directly here) this is another option to send form document
 
 /* const API = "http://localhost:5000/api/members";
 
