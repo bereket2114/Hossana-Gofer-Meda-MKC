@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership Management</title>
+
+  <link rel="stylesheet" href="youthPage.css">
+</head>
+<body>
+  <div class="search">
+    <input id="searchInput" name="search" type="text" placeholder="Search by name">
+    <button id="searchHere" onclick="searchMember()" >Search</button>
+  </div>
+  <div class="container">
+
+    <h1>G/M/MKC Youth Management</h1>
+
+    <form action="/youthPage/addYouthMember" method="post" id="memberForm">
+
+      <input type="text" name="fullName" id="name" placeholder="Full Name" required>
+
+      <input type="number" name="age" min="0" id="age" placeholder="Age" required>
+
+      <select id="sex" name="gender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <input type="text" minlength="10" maxlength="10" name="phone" id="phone" placeholder="Phone Number" required>
+
+      <button type="submit">Add Member</button>
+
+    </form>
+
+    <div class="table-container">
+
+      <table>
+        <caption class="headU">Age < 19</caption>
+        <thead>
+          <tr>
+            <th style="background: green;">Name</th>
+            <th style="background: green;">Age</th>
+            <th style="background: green;">Gender</th>
+            <th style="background: green;">Phone</th>
+            <th style="background: green;">Remove Member</th>
+          </tr>
+        </thead>
+
+        <tbody id="youthList" class="youthForm">
+         <% under19Youth.forEach(list=>{  %>
+            <tr class="memberList" data-id="<%= list._id%>">
+              <td> <%= list.youthFullName %> </td>
+              <td> <%= list.youthAge %> </td>
+              <td> <%= list.youthGender %> </td>
+              <td> <%= list.youthPhone %> </td>
+              <td class="trash"><button class="trashBtn">Delete</button></td>   
+            </tr>
+        <%  }) %>
+          
+        </tbody>
+
+      </table>
+
+      </div>
+        <div class="amount">
+          <p class="amountLabel">TOTAL Youth Under 19</p>
+          <p class="totalNum"> <%= amountUnder %></p>
+        </div>
+
+      <table>
+        <caption class="headA">Age > 19</caption>
+        <thead>
+          <tr>
+            <th style="background: green;">Name</th>
+            <th style="background: green;">Age</th>
+            <th style="background: green;">Sex</th>
+            <th style="background: green;">Phone</th>
+            <th style="background: green;">Remove Member</th>
+          </tr>
+        </thead>
+
+        <tbody id="youthList" class="youthForm">
+       <%  above19Youth.forEach(listA19 => {  %>
+          <tr class="memberList" data-id="<%= listA19._id%>">
+            <td> <%= listA19.youthFullName %></td>
+            <td> <%= listA19.youthAge %></td>
+            <td> <%= listA19.youthGender %></td>
+            <td> <%= listA19.youthPhone %></td>
+            <td class="trash"><button class="trashBtn">Delete</button></td>    
+          </tr>
+
+       <%   })  %>
+          
+        </tbody>
+
+      </table>
+      <div class="amount">
+        <p class="amountLabel">TOTAL Youth above 19</p>
+        <p class="totalNum"> <%= amountAbove %></p>
+      </div>
+     
+    </div>
+    
+    
+  </div>
+
+  <script src="youthmain.js"></script>
+
+</body>
+</html>

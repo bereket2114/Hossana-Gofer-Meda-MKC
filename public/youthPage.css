@@ -1,0 +1,212 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page Layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c7a7b;
+  letter-spacing: -0.5px;
+  font-weight: bold 700;
+}
+
+/* Search Bar */
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e1e8e5;
+  border-radius: 8px;
+  background: #fafcfb;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.search input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  width: 250px;
+}
+
+.search button {
+  padding: 10px 20px;
+  border: none;
+  background: #2c7a7b;
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search button:hover {
+  background: #225e5f;
+}
+
+/* Form Styling */
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+form input, form select, form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form button {
+  background: #2c7a7b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #225e5f;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border: 1px solid #e1e8e5;
+}
+
+caption {
+  font-size: 16px;
+  margin-top: 40px;
+  margin-bottom: 12PX;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  color: #2c7a7b;
+}
+
+thead th {
+  background-color: #2c6e49;
+  padding: 14px 18px;
+  text-align: left;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #edf2f0;
+  color: #444;
+  font-size: 14px;
+  vertical-align: middle;
+
+
+}
+
+tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Total Members */
+.amount {
+  text-align: center;
+  margin: 15px 0 35px 0;
+  background: #edf5f1;
+  border-left: 4px solid #2c6e49;
+  padding: 15px 20px;
+  border-radius: 0 8px 8px 0;
+  display: inline-block;
+  min-width: 200px;
+}
+.amountLabel {
+  font-weight: bold;
+  color: #5c7569;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.totalNum {
+  font-size: 1.5rem;
+  color: #1e463a;
+  font-weight: 700;
+  margin-top: 4px;
+
+}
+td, th{
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.trashBtn{
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.trashBtn:hover{
+  background-color: #dc3545;
+  color: white;
+}
+td:last-child{    /* this :last_child selector is given directly from the CSS and i used it to target my tag in the table and am saying from all td in my body table target the last-child of them */
+  text-align: center;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  .search {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search input, .search button {
+    width: 100%;
+    border-radius: 6px;
+    margin: 5px 0;
+  }
+}

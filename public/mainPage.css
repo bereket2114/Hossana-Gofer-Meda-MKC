@@ -25,29 +25,18 @@ ul{
     align-items: center;
     margin-left: 27%;
     list-style: none;
-    gap: 29px;
-    min-width: 95%;
-    text-decoration: underline;
+    gap: 200px;
+    min-width: 90%;
+    text-decoration: none;
     color: blue;
 }
-.headButton{
-    padding: 5px 5px;
-    margin: 15px auto;
-    margin-left: 29.5%;
-    background-color: black;
-    color: white;
-    width: 70px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.headButton:hover{
-    transform: translateX(5px);
-}
+
 header div{
     margin: 25px 20px;
     font-size:24px;
     font-weight:bold;
 }
+
 main{
     display: flex;
     align-items: center;
@@ -59,27 +48,7 @@ main{
     z-index: 3;
     max-width: 97%;
 }
-.mainForm{
-    gap: 10px;
-    margin: 10px ;
-}
-.mainForm input{
-    min-width: 500px;
-    min-height: 35px;
-    margin-right: 1%;
-    border-radius: 5px;
-}
-.mainForm button{
-    min-height: 35px;
-    padding: 0 15px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.mainForm button:hover{
-    transform: scale(1.2);
-    background: black;
-    color: white;
-}
+
 main > div{
     width: 50%;
     margin: 3% 3%;
@@ -88,27 +57,44 @@ p,span{
     font-size: 18px;
     color: rgb(81, 85, 90);
 }
+
 p,h1{
     margin: 15px auto;
+}
+
+.feature a > p, h2{
+    line-height: 1.3rem;
+}
+.feature h2{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.feature p{
+    font-size: 20px;
+
 }
 .cardImg{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 section > div{
     float: left;
-    width: 24.4%;
+    width: 40%;
     background: #fff;
     border: 1px white solid;
     border-radius: 5px;
-    margin-right: 0.6%;
+    margin-right: 5%;
+    margin-left: 5%;
+    gap: 5%;
     z-index: 3;
     max-height: 140px;
     font-size: 10px;
     line-height: 7px;
-    padding: 10px 20px;
-    transition: 17s;
+    padding: 10px 25px;
+    transition: 25s;
 }
 section > div:hover{
     transform: rotateX(360deg);

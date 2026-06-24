@@ -30,7 +30,7 @@ module.exports = {
             await dataBase.create({
                 memFullName:req.body.fullName, 
                 memAge:req.body.age, 
-                memSex:req.body.sex,
+                memSex:req.body.gender,
                 memPhone:req.body.phone,
                 memSector:req.body.sector,
                 completed:true,
@@ -42,16 +42,6 @@ module.exports = {
             res.status(500).send("Error saving to database.")
         }
     },
-
-//This logic could wait for a bit longer b/c i need to update the members age automatically on their barthDATE, and may be i want to update their phone number!!
-
-    /*changeData: async (req,res)=>{
-        try{
-            await dataBase.findOneAndUpdate({_id:req.body.}) 
-            res.json('Update successful!')
-        }
-       
-    },*/
     deleteMembers: async (req,res)=>{
         try{
             await dataBase.findOneAndDelete({_id:req.body.deleteMem})
@@ -62,5 +52,16 @@ module.exports = {
             console.error(err)
         }   
     }
+
+//This logic could wait for a bit longer b/c i need to update the members age automatically on their barthDATE, and may be i want to update their phone number!!
+
+    /*changeData: async (req,res)=>{
+        try{
+            await dataBase.findOneAndUpdate({_id:req.body.}) 
+            res.json('Update successful!')
+        }
+       
+    },*/
+    
     
 }

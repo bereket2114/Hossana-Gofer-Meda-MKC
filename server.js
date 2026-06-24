@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const membershipRoute = require('./router/memberRoute')
 const mainPageRoute = require('./router/mainRoute')
+const youthPageRoute = require('./router/youthRoute')
 const connectDB = require('./config/connectDataBase')
 
 require('dotenv').config({path:'./config/.env'})
@@ -15,6 +16,7 @@ app.use(express.json())
 
 app.use('/',mainPageRoute )
 app.use('/memberList', membershipRoute)
+app.use('/youthPage', youthPageRoute)
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log(`The server is running on ${process.env.PORT}.`)
