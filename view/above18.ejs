@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Above 18 Youth Membership Management</title>
+    <link rel="stylesheet" href="/above18.css">
+
+</head>
+<body>
+    <div class="conttainer">
+
+        <div class="search">
+            <input id="searchInput" name="search" type="text" placeholder="Search by name">
+            <button id="searchHere" onclick="searchMember()" >Search</button>
+        </div>
+
+        <h1>G/M/MKC Youth Management Above 18</h1>
+
+        <table>
+            <caption class="headA">Age > 18</caption>
+          <thead>
+            <tr>
+               <th style="background: green;">Name</th>
+               <th style="background: green;">Age</th>
+               <th style="background: green;">Sex</th>
+               <th style="background: green;">Phone</th>
+               <th style="background: green;">Remove Member</th>
+            </tr>
+          </thead>
+
+        <tbody id="youthList" class="youthForm">
+       <%  above18Youth.forEach(listA18 => {  %>
+          <tr class="memberList" data-id="<%= listA18._id%>">
+            <td> <%= listA18.youthFullName.toUpperCase() %> </td>
+            <td> <%= listA18.youthAge %> </td>
+            <td> <%= listA18.youthGender %> </td>
+            <td> <%= listA18.youthPhone %> </td>
+            <td class="trash"> <button class="trashBtn">Delete</button> </td>    
+          </tr>
+
+       <%   })  %>
+          
+        </tbody>
+
+      </table>
+      <div class="amount">
+        <p class="amountLabel"> TOTAL Youth above 18 </p>
+        <p class="totalNum"> <%= amountAbove %> </p>
+      </div>
+    </div>
+    
+    <script type="text/javascript" src="/above18Main.js"></script>
+     
+</body>
+</html>

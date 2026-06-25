@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Membership Management</title>
-
-  <link rel="stylesheet" href="youthPage.css">
+  <title> Under 18 Youth Membership Management</title>
+  <link rel="stylesheet" href="/under18.css">
 </head>
 <body>
   <div class="search">
@@ -16,7 +15,7 @@
 
     <h1>G/M/MKC Youth Management</h1>
 
-    <form action="/youthPage/addYouthMember" method="post" id="memberForm">
+    <form action="/youth/addYouthMember" method="post" id="memberForm">
 
       <input type="text" name="fullName" id="name" placeholder="Full Name" required>
 
@@ -37,7 +36,7 @@
     <div class="table-container">
 
       <table>
-        <caption class="headU">Age < 19</caption>
+        <caption class="headU">Age < 18</caption>
         <thead>
           <tr>
             <th style="background: green;">Name</th>
@@ -49,12 +48,12 @@
         </thead>
 
         <tbody id="youthList" class="youthForm">
-         <% under19Youth.forEach(list=>{  %>
-            <tr class="memberList" data-id="<%= list._id%>">
-              <td> <%= list.youthFullName %> </td>
-              <td> <%= list.youthAge %> </td>
-              <td> <%= list.youthGender %> </td>
-              <td> <%= list.youthPhone %> </td>
+         <% under18Youth.forEach(listU18=>{  %>
+            <tr class="memberList" data-id="<%= listU18._id%>">
+              <td> <%= listU18.youthFullName.toUpperCase() %> </td>
+              <td> <%= listU18.youthAge %> </td>
+              <td> <%= listU18.youthGender %> </td>
+              <td> <%= listU18.youthPhone %> </td>
               <td class="trash"><button class="trashBtn">Delete</button></td>   
             </tr>
         <%  }) %>
@@ -65,48 +64,20 @@
 
       </div>
         <div class="amount">
-          <p class="amountLabel">TOTAL Youth Under 19</p>
+          <p class="amountLabel">TOTAL Youth Under 18</p>
           <p class="totalNum"> <%= amountUnder %></p>
-        </div>
-
-      <table>
-        <caption class="headA">Age > 19</caption>
-        <thead>
-          <tr>
-            <th style="background: green;">Name</th>
-            <th style="background: green;">Age</th>
-            <th style="background: green;">Sex</th>
-            <th style="background: green;">Phone</th>
-            <th style="background: green;">Remove Member</th>
-          </tr>
-        </thead>
-
-        <tbody id="youthList" class="youthForm">
-       <%  above19Youth.forEach(listA19 => {  %>
-          <tr class="memberList" data-id="<%= listA19._id%>">
-            <td> <%= listA19.youthFullName %></td>
-            <td> <%= listA19.youthAge %></td>
-            <td> <%= listA19.youthGender %></td>
-            <td> <%= listA19.youthPhone %></td>
-            <td class="trash"><button class="trashBtn">Delete</button></td>    
-          </tr>
-
-       <%   })  %>
-          
-        </tbody>
-
-      </table>
-      <div class="amount">
-        <p class="amountLabel">TOTAL Youth above 19</p>
-        <p class="totalNum"> <%= amountAbove %></p>
       </div>
-     
+      <div class="next">
+        <p>Press the <strong>button</strong> to find those youth age is above 18</p>
+        <button type="button"> <a href="/youth/above18" target="_blank"> Next </a> </button>
+      </div>
+      
     </div>
     
     
   </div>
 
-  <script src="youthmain.js"></script>
+  <script src="/under18Main.js"></script>
 
 </body>
 </html>

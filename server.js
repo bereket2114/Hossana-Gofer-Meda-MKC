@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const membershipRoute = require('./router/memberRoute')
+const membershipRoute = require('./router/allMemberRoute')
 const mainPageRoute = require('./router/mainRoute')
 const youthPageRoute = require('./router/youthRoute')
 const connectDB = require('./config/connectDataBase')
@@ -16,7 +16,7 @@ app.use(express.json())
 
 app.use('/',mainPageRoute )
 app.use('/memberList', membershipRoute)
-app.use('/youthPage', youthPageRoute)
+app.use('/youth', youthPageRoute)
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log(`The server is running on ${process.env.PORT}.`)

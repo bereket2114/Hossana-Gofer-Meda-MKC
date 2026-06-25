@@ -2,9 +2,12 @@ const express = require('express')
 const router = express.Router()
 const youthControl = require('../controller/youthController')
 
-router.get('/', youthControl.getYouthDashboard)
-router.get('/search', youthControl.searchYouth)
+router.get('/under18', youthControl.getYouthUnder18)
+router.get('/above18', youthControl.getYouthAbove18)
+router.get('/searchUnder', youthControl. searchYouthUnder18)
+router.get('/searchAbove', youthControl. searchYouthAbove18)
 router.post('/addYouthMember', youthControl.addYouth)
-router.delete('/removeYouth', youthControl.deleteOne)
+router.delete('/removeYouthUnder18', youthControl.deleteUnder18)
+router.delete('/removeYouthAbove18', youthControl.deleteAbove18)
 
 module.exports = router

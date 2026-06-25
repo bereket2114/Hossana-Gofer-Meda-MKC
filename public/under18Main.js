@@ -19,11 +19,11 @@ async function deleteMember(buttonElement){
     if (!confirm("Are you sure you want to delete this member?")) return;
 
     try{
-        const result = await fetch('/memberList/removeMembers', {
+        const result = await fetch('/youth/removeYouthUnder18', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'deleteOneYouth' : removeOne
+                'deleteUnder18Youth' : removeOne
             })
         })
         const data = await result.json()
@@ -45,13 +45,13 @@ async function searchMember(){
     return;
   }
   try{
-    const respond = await fetch(`/youthPage/search?name=${keyboard}`)
+    const respond = await fetch(`/youth/searchUnder?under18=${keyboard}`)
     const data = await respond.json()
 
     //Clear the current table content
     tableBody.innerHTML = "";
     if(data.length === 0){
-      tableBody.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 20px;"> No matching members found. </td> </tr>`;
+      tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;"> No matching members found. </td> </tr>`;
       return;
     }
       // loop through the search results and dynamically build rows match my columns
