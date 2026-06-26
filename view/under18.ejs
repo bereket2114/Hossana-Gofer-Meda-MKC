@@ -13,13 +13,13 @@
   </div>
   <div class="container">
 
-    <h1>G/M/MKC Youth Management</h1>
+    <h1>G/M/MKC Youth Management < 18</h1>
 
     <form action="/youth/addYouthMember" method="post" id="memberForm">
 
       <input type="text" name="fullName" id="name" placeholder="Full Name" required>
 
-      <input type="number" name="age" min="0" id="age" placeholder="Age" required>
+      <input type="date" name="birthDate" min="0" id="age" placeholder="Age" required>
 
       <select id="sex" name="gender" required>
         <option value="">Select Gender</option>
@@ -51,7 +51,7 @@
          <% under18Youth.forEach(listU18=>{  %>
             <tr class="memberList" data-id="<%= listU18._id%>">
               <td> <%= listU18.youthFullName.toUpperCase() %> </td>
-              <td> <%= listU18.youthAge %> </td>
+              <td> <%= listU18.calculatedAge %> </td>
               <td> <%= listU18.youthGender %> </td>
               <td> <%= listU18.youthPhone %> </td>
               <td class="trash"><button class="trashBtn">Delete</button></td>   
@@ -69,7 +69,7 @@
       </div>
       <div class="next">
         <p>Press the <strong>button</strong> to find those youth age is above 18</p>
-        <button type="button"> <a href="/youth/above18" target="_blank"> Next </a> </button>
+        <a href="/youth/above18" target="above_18" style="text-decoration: none;"> <button type="button"> Above 18 </button> </a>
       </div>
       
     </div>

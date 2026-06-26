@@ -5,8 +5,8 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    memAge:{
-        type: Number,
+    memBirthDate:{
+        type: Date,
         required: true,
     },
     memSex:{

@@ -5,8 +5,8 @@ const youthSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    youthAge:{
-        type: Number,
+    youthBirthDate:{
+        type: Date,
         required: true,
     },
     youthGender:{

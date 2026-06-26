@@ -1,20 +1,55 @@
 const dataBase = require('../model/membersDataBase')
 const path = require('path')
+
+function calculateAge(birthDate) {
+    if (!birthDate) return 'N/A'; // Handles missing dates gracefully
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 module.exports = {
-    seeMember: async (req,res)=>{
-        try{
-            console.log("Form Data Received:",req.body)
-            const memberList = await dataBase.find().sort({memFullName:1})
-            const totalAmount = await dataBase.countDocuments({completed:true})
-            res.render(path.join(__dirname,'..','view','formTable.ejs'),{members: memberList, amount:totalAmount})
-        } catch(err){
-            console.error(err)
-        }
-    },
+
+    seeMember: async (req, res) => {
+    try {
+        console.log("Form Data Received:", req.body);
+        
+        // 1. Fetch the data exactly as you are doing now
+        const rawMembers = await dataBase.find().sort({ memFullName: 1 }).collation({ locale: 'en', strength: 2 });
+        const totalAmount = await dataBase.countDocuments({ completed: true });
+
+        // 2. Convert Mongoose documents to plain objects and calculate age
+        const memberList = rawMembers.map(doc => {
+            const member = doc.toObject();
+            // Replace 'dateOfBirth' with whatever your actual schema field is called
+            member.age = calculateAge(member.memBirthDate); 
+            return member;
+        });
+
+        // 3. Render the page with the updated list
+        res.render(path.join(__dirname, '..', 'view', 'formTable.ejs'), { 
+            members: memberList, 
+            amount: totalAmount 
+        });
+
+    } catch (err) {
+        console.error(err);
+        // It's a good idea to send a response if an error occurs so the browser doesn't hang
+        res.status(500).send("Internal Server Error");
+    }
+    
+},
 
     // if some one specifically searching someone this function could help him
 
     searchAndGetByName: async (req,res)=>{
+
         try{
             const searchName = req.query.name
             const users = await dataBase.find({
@@ -29,7 +64,7 @@ module.exports = {
         try{
             await dataBase.create({
                 memFullName:req.body.fullName, 
-                memAge:req.body.age, 
+                memBirthDate:new Date (req.body.age),
                 memSex:req.body.gender,
                 memPhone:req.body.phone,
                 memSector:req.body.sector,

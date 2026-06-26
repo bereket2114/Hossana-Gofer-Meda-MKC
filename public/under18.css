@@ -193,6 +193,33 @@ td:last-child{    /* this :last_child selector is given directly from the CSS an
   text-align: center;
 }
 
+.next{
+  padding: 10px 20px;
+  border: none;
+  background: #2c7a7b;
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 3%;
+}
+.next button{
+  padding: 10px 20px;
+  border: none;
+  background: #ffffff;
+  color: #1e463a;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 500;
+  margin-top: 2%;
+}
+.next button:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+
 /* Responsive Behavior */
 @media (max-width: 768px) {
   form {

@@ -20,7 +20,7 @@
 
       <input type="text" name="fullName" id="name" placeholder="Full Name" required>
 
-      <input type="number" name="age" min="0" id="age" placeholder="Age" required>
+      <input type="date" name="age" min="0" id="age" placeholder="Age" required>
 
       <select id="sex" name="gender" required>
         <option value="">Select Gender</option>
@@ -54,12 +54,12 @@
         <tbody id="memberList">
           <% members.forEach(list=> { %>
           <tr class="memberList" data-id="<%= list._id%>">
-            <td><%= list.memFullName.toUpperCase()%></td>
-            <td><%= list.memAge%></td>
-            <td><%= list.memSex%></td>
-            <td><%= list.memPhone%></td>
-            <td><%= list.memSector.toUpperCase()%></td>
-            <td class="trash"><button class="trashBtn">Delete</button></td>    <%# This sign is for ejs template comment we used %>
+            <td> <%= list.memFullName.toUpperCase() %> </td>
+            <td> <%= list.age %> </td>
+            <td> <%= list.memSex %> </td>
+            <td> <%= list.memPhone %> </td>
+            <td> <%= list.memSector.toUpperCase() %> </td>
+            <td class="trash"> <button class="trashBtn">Delete</button> </td>    <%# This sign is for ejs template comment we used %>
           </tr>
           <% }) %>
         </tbody>
