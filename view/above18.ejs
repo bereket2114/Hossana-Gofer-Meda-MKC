@@ -17,33 +17,36 @@
 
         <h1>G/M/MKC Youth Management > 18</h1>
 
-        <table>
-            <caption class="headA">Age > 18</caption>
-          <thead>
-            <tr>
-               <th style="background: green;">Name</th>
-               <th style="background: green;">Age</th>
-               <th style="background: green;">Sex</th>
-               <th style="background: green;">Phone</th>
-               <th style="background: green;">Remove Member</th>
-            </tr>
-          </thead>
+        <div class="table-container">
+            <table>
+                <caption class="headA">Age > 18</caption>
+                <thead>
+                  <tr>
+                      <th style="background: green;">Name</th>
+                      <th style="background: green;">Age</th>
+                      <th style="background: green;">Sex</th>
+                      <th style="background: green;">Phone</th>
+                      <th style="background: green;">Remove Member</th>
+                  </tr>
+                </thead>
 
-        <tbody id="youthList" class="youthForm">
-       <%  above18Youth.forEach(listA18 => {  %>
-          <tr class="memberList" data-id="<%= listA18._id%>">
-            <td> <%= listA18.youthFullName.toUpperCase() %> </td>
-            <td> <%= listA18.calculatedAge %> </td>
-            <td> <%= listA18.youthGender %> </td>
-            <td> <%= listA18.youthPhone %> </td>
-            <td class="trash"> <button class="trashBtn">Delete</button> </td>    
-          </tr>
+                <tbody id="youthList" class="youthForm">
+                <%  above18Youth.forEach(listA18 => {  %>
+                    <tr class="memberList" data-id="<%= listA18._id%>">
+                       <td> <%= listA18.youthFullName.toUpperCase() %> </td>
+                       <td> <%= listA18.calculatedAge %> </td>
+                       <td> <%= listA18.youthGender %> </td>
+                       <td> <%= listA18.youthPhone %> </td>
+                       <td class="trash"> <button class="trashBtn">Delete</button> </td>    
+                    </tr>
 
-       <%   })  %>
+                <%   })  %>
           
-        </tbody>
+                </tbody>
 
-      </table>
+            </table>
+
+        </div>
       
       <div class="amount">
         <p class="amountLabel"> TOTAL Youth above 18 </p>

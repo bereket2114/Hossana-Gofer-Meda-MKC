@@ -76,24 +76,6 @@ form {
   margin-bottom: 30px;
 }
 
-form input, form select, form button {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-form button {
-  background: #2c7a7b;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background: #225e5f;
-}
-
 /* Tables */
 .table-container {
   overflow-x: auto;
@@ -201,7 +183,8 @@ td:last-child{    /* this :last_child selector is given directly from the CSS an
   border-radius: 0 6px 6px 0;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 3%;
+  margin-top: 4%;
+  margin-bottom: 5%;
 }
 .back button{
   padding: 10px 20px;

@@ -201,7 +201,8 @@ td:last-child{    /* this :last_child selector is given directly from the CSS an
   border-radius: 0 6px 6px 0;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 3%;
+  margin-top: 4%;
+  margin-bottom: 5%; 
 }
 .next button{
   padding: 10px 20px;
