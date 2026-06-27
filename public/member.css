@@ -29,15 +29,17 @@ header{
   max-width:1100px;
   margin:auto;
   background:white;
-  padding:30px;
+  padding:40px;
   border-radius:15px;
   box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-h1{
-  text-align:center;
-  margin-bottom:25px;
-  color:#333;
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #2c7a7b;
+  letter-spacing: -0.5px;
+  font-weight: bold 700;
 }
 
 form{
@@ -55,7 +57,7 @@ input, select{
 }
 
 button{
-  background:#2563eb;
+  background: #2c7a7b;
   color:white;
   border:none;
   padding:12px;
@@ -97,28 +99,32 @@ th{
   overflow-x:auto;
 }
 
-.amount{
+/* Total Members */
+.amount {
   text-align: center;
-  padding: 15px;
-  margin-top: 3%;
- /* font-weight: bold black 500;  */
+  margin: 30px 0 35px 0;
+  background: #edf5f1;
+  border-left: 4px solid #2c6e49;
+  padding: 15px 20px;
+  border-radius: 0 8px 8px 0;
+  display: inline-block;
+  min-width: 200px;
 }
 
-.amountLabel{
-  font-size: 12px;
-  color: #666;
-  letter-spacing: 1px;
-  margin: 0;
-  /* color: #1d4ed8;
-  border-bottom: 2px solid black;
-  border-width: 50%; */
-}
-
-.totalNum{
-  font-size: 32px;
+.amountLabel {
   font-weight: bold;
-  color: #3b5998;
-  margin: 5px 0 0 0;
+  color: #5c7569;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.totalNum {
+  font-size: 1.5rem;
+  color: #1e463a;
+  font-weight: 700;
+  margin-top: 4px;
+
 }
 
 .search{
