@@ -10,6 +10,21 @@ body{
   padding:40px;
 }
 
+header{
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  border: 1px solid transparent;
+  padding: 20px 0;
+  width: 100vw;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+}
+
 .container{
   max-width:1100px;
   margin:auto;
@@ -107,7 +122,7 @@ th{
 }
 
 .search{
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 3%;
   justify-content: center;
   display: flex;
