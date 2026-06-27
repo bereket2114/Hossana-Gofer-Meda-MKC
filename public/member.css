@@ -152,3 +152,25 @@ td, th{
 td:last-child{    /* this :last_child selector is given directly from the CSS and i used it to target my tag in the table and am saying from all td in my body table target the last-child of them */
   text-align: center;
 }
+
+/*Make it responsive */
+
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+   header{
+    padding: 10px 0;
+   }
+  .search {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
+  }
+
+  .search input, .search button {
+    width: 100%;
+    border-radius: 6px;
+    margin: 5px 0;
+  }
+}
