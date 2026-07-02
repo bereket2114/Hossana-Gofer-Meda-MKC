@@ -1,6 +1,6 @@
 const passport = require('passport')
 const validator = require('validator')
-const User = require('../model/UserAuth')
+const User = require('../model/userAuth')
 const path = require('path')
 
  exports.getLogin = (req, res) => {
