@@ -1,0 +1,342 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:40px 20px;
+
+    background:
+    linear-gradient(rgba(6,24,49,.82),rgba(6,24,49,.82)),
+    url("/church-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    width:100%;
+    max-width:1200px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:40px;
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #FFD700;
+    box-shadow:0 0 20px rgba(255,215,0,.4);
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:17px;
+    transition:.3s;
+    font-weight:500;
+}
+
+header a:hover{
+    color:#FFD700;
+}
+
+/* ================= WELCOME ================= */
+
+.welcome{
+    text-align:center;
+    color:white;
+    max-width:800px;
+    margin-bottom:35px;
+}
+
+.welcome h2{
+    font-size:35px;
+    margin-bottom:15px;
+    font-weight:600;
+}
+
+.welcome i{
+    color:#FFD700;
+    font-size:45px;
+    margin:20px 0;
+}
+
+.welcome p{
+    line-height:1.8;
+    font-size:16px;
+    opacity:.92;
+}
+
+/* ================= FORM ================= */
+
+form{
+    width:100%;
+    max-width:470px;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.35);
+
+    animation:fadeIn .8s ease;
+}
+
+form h1{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+label{
+    display:block;
+    color:white;
+    margin-bottom:8px;
+    margin-top:18px;
+    font-weight:500;
+}
+
+input{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+    font-size:15px;
+
+    transition:.35s;
+}
+
+input::placeholder{
+    color:#ddd;
+}
+
+input:focus{
+
+    background:rgba(255,255,255,.25);
+
+    border:1px solid #FFD700;
+
+    box-shadow:
+    0 0 15px rgba(255,215,0,.45);
+}
+
+/* ================= SELECT ================= */
+
+select{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.18);
+    color:white;
+
+    font-size:15px;
+    cursor:pointer;
+
+    transition:.35s;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    margin-top:2px;
+
+    /* Custom dropdown arrow */
+    background-image:
+        linear-gradient(45deg, transparent 50%, #FFD700 50%),
+        linear-gradient(135deg, #FFD700 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) calc(50% - 3px),
+        calc(100% - 16px) calc(50% - 3px);
+    background-size:6px 6px, 6px 6px;
+    background-repeat:no-repeat;
+}
+
+select:focus{
+    background-color:rgba(255,255,255,.25);
+
+    border:1px solid #FFD700;
+
+    box-shadow:0 0 15px rgba(255,215,0,.45);
+}
+
+select option{
+    background:#0B2447;
+    color:white;
+}
+
+select:invalid{
+    color:#ddd;
+}
+
+select option[value=""]{
+    color:#bbb;
+}
+/* ================= BUTTON ================= */
+
+button{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#FFD700;
+
+    color:#0B2447;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    background:white;
+
+    box-shadow:
+
+    0 10px 25px rgba(255,215,0,.45);
+}
+
+/* ================= LOGIN LINK ================= */
+
+form>a{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:22px;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+form>a:hover{
+
+    color:#FFD700;
+}
+
+/* ================= ERROR MESSAGE ================= */
+
+.alert{
+
+    background:#ffdddd;
+
+    color:#8b0000;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    font-size:14px;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+header a{
+
+    margin:0 10px;
+
+}
+
+.welcome h2{
+
+    font-size:28px;
+
+}
+
+form{
+
+    padding:30px;
+
+}
+
+}

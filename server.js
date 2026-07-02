@@ -1,11 +1,22 @@
 const express = require('express')
 const app = express()
+const connectDB = require('./config/connectDataBase')
+const mongoose = require('mongoose')
+const passport = require('passport')
+const session = require('express-session')
+const { MongoStore } = require('connect-mongo')
+const flash = require('express-flash')
+const logger = require('morgan')
 const membershipRoute = require('./router/allMemberRoute')
 const mainPageRoute = require('./router/mainRoute')
 const youthPageRoute = require('./router/youthRoute')
-const connectDB = require('./config/connectDataBase')
+const registerRoute = require('./router/authRoute')
+
 
 require('dotenv').config({path:'./config/.env'})
+
+// Passport config
+require('./config/passport')(passport)
 
 connectDB()
 
@@ -13,8 +24,33 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(logger('dev'))
+
+// Sessions
+app.use(
+    session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        maxAge: 1000*60*60*1, // session dead after one hour and ask new login
+        httpOnly: true, //avoid client-side JS messing with cookies
+        sameSite: 'lax'  // avoid CSRF issues
+
+      },
+      store: MongoStore.create({ mongoUrl: process.env.DB_String }),
+    })
+  )
+
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
+app.use(flash())
+  
 
 app.use('/',mainPageRoute )
+app.use('/register', registerRoute)
 app.use('/memberList', membershipRoute)
 app.use('/youth', youthPageRoute)
 

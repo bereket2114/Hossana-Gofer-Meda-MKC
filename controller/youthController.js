@@ -10,7 +10,7 @@ module.exports = {
                 eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
 
         // Under 18 means their birth date must be GREATER than (after) 18 years ago
-                const under18 = await dataBase.find({ youthBirthDate: { $gt: eighteenYearsAgo } 
+                const under18 = await dataBase.find({userId: req.user.id, youthBirthDate: { $gt: eighteenYearsAgo } 
                 })
                 .sort({youthFullName: 1})
                 .collation({locale: 'en',strength : 2})
@@ -41,7 +41,7 @@ getYouthAbove18: async (req, res) => {
             eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
 
         // 18 or older means their birth date must be LESS THAN OR EQUAL TO (before) 18 years ago
-                const above18 = await dataBase.find({ youthBirthDate: { $lte: eighteenYearsAgo } 
+                const above18 = await dataBase.find({ userId: req.user.id, youthBirthDate: { $lte: eighteenYearsAgo } 
                 })
                 .sort({youthFullName: 1})
                 .collation({locale: 'en',strength : 2})
@@ -67,8 +67,9 @@ getYouthAbove18: async (req, res) => {
     searchYouthUnder18: async(req,res)=> {
        try{
             const searchName = req.query.under18
-            const users = await dataBase.find({youthFullName:{$regex: searchName, $options: "i"}})
+            const users = await dataBase.find({userId: req.user.id, youthFullName:{$regex: searchName, $options: "i"} })
             res.json(users)
+            
         } catch(err){
             res.status(500).send(err.message)
         }
@@ -77,8 +78,9 @@ getYouthAbove18: async (req, res) => {
     searchYouthAbove18: async(req,res)=> {
        try{
             const searchName = req.query.above18
-            const users = await dataBase.find({youthFullName:{$regex: searchName, $options: "i"}})
+            const users = await dataBase.find({ userId: req.user.id, youthFullName:{$regex: searchName, $options: "i"} })
             res.json(users)
+
         } catch(err){
             res.status(500).send(err.message)
         }
@@ -91,6 +93,7 @@ getYouthAbove18: async (req, res) => {
                 youthBirthDate: new Date (req.body.birthDate),
                 youthGender: req.body.gender,
                 youthPhone: req.body.phone,
+                userId: req.user.id,
                 completed: false
             })
             console.log('New member Added Successfully.')

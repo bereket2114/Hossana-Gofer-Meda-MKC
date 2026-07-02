@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/register.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="/mkc-logo.jpg" alt="MKC Logo">
+
+        <nav>
+            <a href="/register/signup" target="register">Register</a>
+            <a href="/register/login" target="login">Log In</a>
+        </nav>
+    </header>
+
+    <div class="welcome">
+        <h2>welcome to G/M MKC member management</h2>
+        <i class="fa-solid fa-cross"></i>
+        <p>እሺ ብላችሁ ብትታዘዙኝ ምድር የምታስገኘውን በረከት ትበላላችሁ፤ — ኢሳይያስ 1:19</p>
+        <p>Isaiah 1¹⁹ If you be willing and obedient, you shall eat the good of the land.</p>
+    </div>
+    
+    <form action="/register/signup" method="post">
+        <h1>Create an Account</h1>
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <label for="username">username</label>
+        <input type="text" name="userName" placeholder="User Name" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" required>
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+        <label for="role">Room</label>
+        <select name="role" id="role">
+            <option value="">Select Room</option>
+            <option value="general">All Member</option>
+            <option value="youth">Youth Member</option>
+        </select>
+        <button type="submit">Register</button>
+        <a href="/register/login" target="login">Already have an account?</a>
+    </form>
+</body>
+</html>

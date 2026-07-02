@@ -21,7 +21,7 @@ module.exports = {
         console.log("Form Data Received:", req.body);
         
         // 1. Fetch the data exactly as you are doing now
-        const rawMembers = await dataBase.find().sort({ memFullName: 1 }).collation({ locale: 'en', strength: 2 });
+        const rawMembers = await dataBase.find({userId: req.user.id}).sort({ memFullName: 1 }).collation({ locale: 'en', strength: 2 });
         const totalAmount = await dataBase.countDocuments({ completed: true });
 
         // 2. Convert Mongoose documents to plain objects and calculate age
@@ -68,6 +68,7 @@ module.exports = {
                 memSex:req.body.gender,
                 memPhone:req.body.phone,
                 memSector:req.body.sector,
+                userId: req.user.id,
                 completed:true,
             })
             console.log('New Member Added Successfully!') 

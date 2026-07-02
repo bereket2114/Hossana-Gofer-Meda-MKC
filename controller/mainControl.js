@@ -5,4 +5,6 @@ module.exports = {
         console.log('we are sending the main page')
         res.sendFile(path.join(__dirname,'..','view','mainPage.html'))
     }
+
 }
+

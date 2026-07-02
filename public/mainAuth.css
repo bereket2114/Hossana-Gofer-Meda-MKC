@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(rgba(6,24,49,.88),rgba(6,24,49,.88)),
+url("/church-bg.jpg");
+
+background-size:cover;
+background-position:center;
+
+min-height:100vh;
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+/* HEADER */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 8%;
+
+backdrop-filter:blur(12px);
+
+background:rgba(255,255,255,.05);
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.logo-area{
+
+display:flex;
+align-items:center;
+gap:18px;
+
+}
+
+.logo{
+
+width:75px;
+height:75px;
+
+border-radius:50%;
+
+border:3px solid gold;
+
+object-fit:cover;
+
+box-shadow:0 0 18px rgba(255,215,0,.5);
+
+}
+
+.logo-area h2{
+
+font-size:22px;
+
+}
+
+.logo-area p{
+
+color:#ddd;
+
+}
+
+nav{
+
+display:flex;
+
+gap:20px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:white;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:gold;
+
+}
+
+/* MAIN */
+
+main{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+align-items:center;
+
+padding:70px 8%;
+
+gap:60px;
+
+}
+
+/* LEFT */
+
+.badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+background:rgba(255,255,255,.1);
+
+padding:10px 18px;
+
+border-radius:40px;
+
+margin-bottom:30px;
+
+}
+
+.badge i{
+
+color:gold;
+
+}
+
+.left h1{
+
+font-size:58px;
+
+line-height:1.2;
+
+margin-bottom:30px;
+
+}
+
+.left p{
+
+font-size:18px;
+
+line-height:1.8;
+
+opacity:.9;
+
+max-width:600px;
+
+}
+
+.buttons{
+
+margin-top:40px;
+
+display:flex;
+
+gap:20px;
+
+}
+
+.register-btn{
+
+padding:15px 40px;
+
+background:gold;
+
+color:#071B35;
+
+border-radius:10px;
+
+font-weight:600;
+
+text-decoration:none;
+
+transition:.35s;
+
+}
+
+.register-btn:hover{
+
+transform:translateY(-4px);
+
+}
+
+.login-btn{
+
+padding:15px 40px;
+
+border:2px solid white;
+
+border-radius:10px;
+
+text-decoration:none;
+
+color:white;
+
+transition:.35s;
+
+}
+
+.login-btn:hover{
+
+background:white;
+
+color:#071B35;
+
+}
+
+/* VERSE */
+
+.verse{
+
+margin-top:60px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+padding:25px;
+
+border-radius:18px;
+
+border-left:5px solid gold;
+
+}
+
+.verse i{
+
+font-size:30px;
+
+color:gold;
+
+margin-bottom:10px;
+
+}
+
+.verse p{
+
+font-style:italic;
+
+margin-bottom:10px;
+
+}
+
+/* RIGHT */
+
+.right{
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.right img{
+
+width:100%;
+
+max-width:550px;
+
+animation:float 5s ease-in-out infinite;
+
+filter:drop-shadow(0 20px 40px rgba(0,0,0,.4));
+
+}
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+color:#ddd;
+
+}
+
+/* FLOAT */
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+main{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.buttons{
+
+justify-content:center;
+
+}
+
+.left p{
+
+margin:auto;
+
+}
+
+header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.left h1{
+
+font-size:40px;
+
+}
+
+}

@@ -5,16 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Membership Management</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="member.css">
+  <link rel="stylesheet" href="/member.css">
 </head>
 <body>
   <header>
-    <a href="/" target="hossana"><i class="fa-regular fa-house"></i></a>
-  </header>
+    <div class="logo-area">
+        <img src="/mkc-logo.jpg" class="logo" alt="">
+        <h2>G/M MKC Member Management</h2>
+    </div>
+
+    <nav>
+        <a href="/">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="/register/logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </nav>
+</header>
+
   <div class="search">
-    <input id="searchInput" name="search" type="text" placeholder="Search by name">
-    <button id="searchHere" onclick="searchMember()" >Search</button>
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Search member by name...">
+
+    <button onclick="searchMember()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
+
   </div>
+
   <div class="container">
 
     <h1>G/M/MKC Membership Management</h1>
@@ -35,7 +61,10 @@
 
       <input type="text" name="sector" id="sector" placeholder="Sector" required>
 
-      <button type="submit">Add Member</button>
+      <button type="submit">
+        <i class="fa-solid fa-user-plus"></i>
+        Add Member
+      </button>
 
     </form>
 
@@ -62,7 +91,10 @@
             <td> <%= list.memSex %> </td>
             <td> <%= list.memPhone %> </td>
             <td> <%= list.memSector.toUpperCase() %> </td>
-            <td class="trash"> <button class="trashBtn">Delete</button> </td>    <%# This sign is for ejs template comment we used %>
+            <td class="trash">
+              <button class="trashBtn"><i class="fa-solid fa-trash"></i>Delete</button> 
+            </td>   
+<%# This sign is for ejs template comment we used %>
           </tr>
           <% }) %>
         </tbody>
@@ -70,9 +102,10 @@
       </table>
      
     </div>
+
     <div class="amount">
-      <p class="amountLabel">TOTAL MEMBERS</p>
-      <p class="totalNum"> <%= amount%> </p>
+      <p>Total Members</p>
+      <h2><%= amount %></h2>
     </div>
     
   </div>

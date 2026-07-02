@@ -60,7 +60,7 @@ async function searchMember(){
         const row =`
         <tr>
           <td>${user.youthFullName}</td>
-          <td>${user.youthAge}</td>
+          <td>${user.calculatedAge}</td>
           <td>${user.youthGender}</td>
           <td>${user.youthPhone}</td>
           <td><button class="trash">Delete</button></td>

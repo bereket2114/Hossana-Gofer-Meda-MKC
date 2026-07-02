@@ -1,0 +1,366 @@
+/* ===================================
+   GOOGLE FONT
+=================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(8,27,51,.82),rgba(8,27,51,.82)),
+    url("/church-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+
+header{
+
+    width:100%;
+    padding:18px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(255,255,255,.08);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    z-index:1000;
+
+}
+
+.logo{
+
+    width:75px;
+    height:75px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    border:3px solid #FFD54F;
+
+    box-shadow:0 0 15px rgba(255,215,0,.4);
+
+}
+
+nav{
+
+    display:flex;
+    gap:30px;
+
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#FFD54F;
+
+}
+
+/* ===================================
+   WELCOME
+=================================== */
+
+.welcome{
+
+    width:min(800px,90%);
+    text-align:center;
+
+    margin:60px auto 40px;
+
+    animation:fadeUp .8s;
+
+}
+
+.welcome h2{
+
+    font-size:2.2rem;
+
+    margin-bottom:18px;
+
+}
+
+.welcome i{
+
+    color:#FFD54F;
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.welcome p{
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    margin-bottom:10px;
+
+}
+
+/* ===================================
+   LOGIN CARD
+=================================== */
+
+form{
+
+    width:min(430px,92%);
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.35);
+
+    animation:fadeUp 1s;
+
+}
+
+form h1{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:2rem;
+
+}
+
+/* ===================================
+   INPUTS
+=================================== */
+
+input[type=email],
+input[type=password]{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-bottom:18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+input::placeholder{
+
+    color:#ddd;
+
+}
+
+input:focus{
+
+    background:rgba(255,255,255,.22);
+
+    box-shadow:0 0 15px rgba(255,215,0,.35);
+
+    border:1px solid #FFD54F;
+
+}
+
+/* ===================================
+   BUTTON
+=================================== */
+
+input[type=submit]{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#FFD54F,#FFB300);
+
+    color:#081B33;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+input[type=submit]:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(255,213,79,.45);
+
+}
+
+/* ===================================
+   ALERT
+=================================== */
+
+.alert{
+
+    background:#ffdddd;
+
+    color:#8b0000;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:15px;
+
+    font-size:14px;
+
+}
+
+/* ===================================
+   ANIMATION
+=================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.form-links{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+}
+
+.form-links a{
+    color:#FFD54F;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.form-links a:hover{
+    color:white;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width:768px){
+
+header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+nav{
+
+    gap:18px;
+
+}
+
+.welcome{
+
+    margin-top:40px;
+
+}
+
+.welcome h2{
+
+    font-size:1.7rem;
+
+}
+
+form{
+
+    padding:30px;
+
+}
+
+}

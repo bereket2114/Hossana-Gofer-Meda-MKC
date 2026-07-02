@@ -10,12 +10,36 @@
 <body>
 
   <header>
-    <a href="/" target="hossana"><i class="fa-regular fa-house"></i></a>
-  </header>
+    <div class="logo-area">
+        <img src="/mkc-logo.jpg" class="logo" alt="">
+        <h2>G/M MKC Youth Member Management</h2>
+    </div>
+
+    <nav>
+        <a href="/">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="/register/logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+    </nav>
+</header>
 
   <div class="search">
-    <input id="searchInput" name="search" type="text" placeholder="Search by name">
-    <button id="searchHere" onclick="searchMember()" >Search</button>
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Search member by name...">
+
+    <button onclick="searchMember()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
+
   </div>
 
   <div class="container">
@@ -36,7 +60,11 @@
 
       <input type="text" minlength="10" maxlength="10" name="phone" id="phone" placeholder="Phone Number" required>
 
-      <button type="submit">Add Member</button>
+      <button type="submit">
+        <i class="fa-solid fa-user-plus"></i>
+        Add Member
+      </button>
+
 
     </form>
 
@@ -46,11 +74,11 @@
         <caption class="headU">Age < 18</caption>
         <thead>
           <tr>
-            <th style="background: green;">Name</th>
-            <th style="background: green;">Age</th>
-            <th style="background: green;">Gender</th>
-            <th style="background: green;">Phone</th>
-            <th style="background: green;">Remove Member</th>
+            <th> Name </th>
+            <th> Age </th>
+            <th> Gender </th>
+            <th> Phone </th>
+            <th> Remove Member </th>
           </tr>
         </thead>
 
@@ -61,7 +89,9 @@
               <td> <%= listU18.calculatedAge %> </td>
               <td> <%= listU18.youthGender %> </td>
               <td> <%= listU18.youthPhone %> </td>
-              <td class="trash"><button class="trashBtn">Delete</button></td>   
+              <td class="trash">
+                <button class="trashBtn"><i class="fa-solid fa-trash"></i>Delete</button> 
+              </td>     
             </tr>
         <%  }) %>
           
@@ -70,10 +100,12 @@
       </table>
 
       </div>
-        <div class="amount">
-          <p class="amountLabel">TOTAL Youth Under 18</p>
-          <p class="totalNum"> <%= amountUnder %></p>
+
+      <div class="amount">
+        <p class="amountLabel">TotalYouth Members < 18 </u></p>
+        <h2 class="totalNum"><%= amountUnder %></h2>
       </div>
+    
       <div class="next">
         <p>Press the <strong>button</strong> to find those youth age is above 18</p>
         <a href="/youth/above18" target="above_18" style="text-decoration: none;"> <button type="button"> Above 18 </button> </a>

@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Above 18 Youth Membership Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="/above18.css">
 
 </head>
 <body>
 
     <div class="search">
-        <input id="searchInput" name="search" type="text" placeholder="Search by name">
-        <button id="searchHere" onclick="searchMember()" >Search</button>
-    </div>
+
+        <input id="searchInput" type="text" placeholder="Search member by name...">
+
+        <button onclick="searchMember()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+
+  </div>
 
     <div class="container">
 
@@ -23,11 +30,11 @@
                 <caption class="headA">Age > 18</caption>
                 <thead>
                   <tr>
-                      <th style="background: green;">Name</th>
-                      <th style="background: green;">Age</th>
-                      <th style="background: green;">Sex</th>
-                      <th style="background: green;">Phone</th>
-                      <th style="background: green;">Remove Member</th>
+                      <th> Name </th>
+                      <th> Age </th>
+                      <th> Sex </th>
+                      <th> Phone </th>
+                      <th> Remove Member </th>
                   </tr>
                 </thead>
 
@@ -38,21 +45,22 @@
                        <td> <%= listA18.calculatedAge %> </td>
                        <td> <%= listA18.youthGender %> </td>
                        <td> <%= listA18.youthPhone %> </td>
-                       <td class="trash"> <button class="trashBtn">Delete</button> </td>    
+                       <td class="trash">
+                            <button class="trashBtn"><i class="fa-solid fa-trash"></i>Delete</button> 
+                        </td> 
                     </tr>
-
-                <%   })  %>
+                <%  })  %>
           
                 </tbody>
 
             </table>
 
         </div>
-      
-      <div class="amount">
-        <p class="amountLabel"> TOTAL Youth above 18 </p>
-        <p class="totalNum"> <%= amountAbove %> </p>
-      </div>
+
+        <div class="amount">
+            <p class="amountLabel">TotalYouth Members > 18 </u></p>
+            <h2 class="totalNum"><%= amountAbove %></h2>
+        </div>
 
       <div class="back">
         <p>Press the <strong>button</strong> to find those youth age is above 18</p>
