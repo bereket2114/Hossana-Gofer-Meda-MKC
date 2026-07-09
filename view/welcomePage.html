@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Gofer Meda MKC Registration page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="mainPage.css">
+    <link rel="stylesheet" href="welcomePage.css">
 </head>
 <body>
     <header>
@@ -16,8 +16,9 @@
         </div>
 
         <ul>
-            <li> <a href="#youth"> Youth Page </a> </li>
-            <li> <a href="#allMember"> Member page </a> </li>
+            <li><a href="#allMember">Member Page</a></li>
+            <li><a href="#youth">Youth Page</a></li>
+            <li><a href="#faithHub">FaithHub</a></li>
         </ul>
     </header>
     <main>
@@ -38,16 +39,36 @@
                 through our modern digital platform.
             </p>
 
-            <div class="buttons">
-                <a href="/register" target="registration" class="btn">Member Management</a>
+        <div class="buttons">
+            <a href="/register" target="registration" class="btn"> Member Management </a>
 
-                <a href="/register" target="registration" class="btn btn-outline">Youth Ministry</a>
-            </div>
+            <a href="/register" target="registration" class="btn btn-outline"> Youth Ministry </a>
+
+            <a href="/feedPage" target="community" class="btn btn-outline"> FaithHub Community </a>
+        </div>
 
         </div>
     </main>
 
     <section class="featureBlock">
+
+        <div class="feature" id="faithHub">
+
+            <i class="fa-solid fa-church"></i>
+
+            <h2>FaithHub Community</h2>
+
+            <p>
+                Stay connected with worship schedules, church announcements,
+                devotionals, testimonies, community discussions, and special events.
+                Share encouragement and grow together in Christ.
+            </p>
+
+            <a href="/feedPage" target="community">
+                Open →
+            </a>
+
+        </div>
 
         <div class="feature" id="allMember">
 

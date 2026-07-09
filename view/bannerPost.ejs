@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Church Post</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link rel="stylesheet" href="/banner.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <img src="/mkc-logo.jpg" class="logo">
+
+        <div>
+
+            <h2>Meserete Kristos Church</h2>
+
+            <p>
+                Share conferences, seminars, youth programs, testimonies,
+                outreach activities, worship nights, announcements,
+                and every special event with the church community.
+            </p>
+
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a href="/">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="banner">
+
+    <div class="post-card">
+
+        <div class="card-title">
+
+            <i class="fa-solid fa-pen-to-square"></i>
+
+            <h1>Create New Post</h1>
+
+        </div>
+
+        <p class="subtitle">
+            Inspire the church community by sharing important updates,
+            upcoming conferences, prayer meetings, celebrations,
+            testimonies, and ministry activities.
+        </p>
+
+ <%# enctype="multipart/form-data" This attribute put inside form tag when i start to post file%> 
+        <form action="/feedPage/postCasual" method="post"  enctype="multipart/form-data"> 
+            <div class="input-group">
+
+                <i class="fa-solid fa-heading"></i>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Post Title"
+                    required>
+
+            </div>
+
+            <textarea
+                name="caption"
+                rows="9"
+                maxlength="1000"
+                placeholder="Write something inspiring for the church community..."></textarea>
+
+            <label class="upload-btn">
+
+                <input
+                    type="file"
+                    name="photo"
+                    accept="image/*"
+                    id="file-upload">
+
+                <i class="fa-solid fa-image"></i>
+
+                <span class="upload-text"> Upload Image </span>
+
+            </label>
+
+            <button type="submit" class="submit-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Publish Post
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<script type="text/javascript" src="/bannerMain.js"></script>
+</body>
+</html>

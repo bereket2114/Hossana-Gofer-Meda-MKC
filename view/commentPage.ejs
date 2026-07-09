@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/comment.css">
+</head>
+<body>
+<%  if( Comments && Comments.length > 0) {   %>
+        <%  Comments.forEach(singleComment => {  %>
+                <div class="comment-box">
+                    <p> <%= singleComment.Comment %> </p>    <%#  i put the users comment here   %>
+                    <div class="footer"  data-id="<%= singleComment._id %>">
+
+                        <span>
+                            <%= singleComment.createdAt.toDateString() %>      <%# make my date & time more simple %>
+                        </span> 
+                        
+                        <button type="button" class="like-btn" data-id="<%= singleComment._id.toString() %>" onclick="likeCasualPost(event)">
+                            <i class="fa-regular fa-heart"></i>
+                            <span><%= singleComment.Likes || 0 %> Likes</span>
+                        </button>
+                    </div>
+
+                </div>
+        <%  })  %>
+<% } else {  %>
+    <p>No comments yet. Be the first to comment</p>
+ <% }  %>
+
+    <form action="/comment/createComment/<%= postIds %>" method="post">  <%# make this section position fixed %>
+        <input name="comment" id="comment"   placeholder="write your comment..."></input>
+        <input type="submit" value="comment">
+    </form>
+
+    <script type="text/javascript" src="/commentMain.js"></script>
+</body>
+</html>

@@ -285,19 +285,51 @@ main{
 
 .feature{
 
-    background:rgba(255,255,255,.08);
+    position:relative;
+    overflow:hidden;
 
+    background:rgba(255,255,255,.08);
     backdrop-filter:blur(20px);
 
     border:1px solid rgba(255,255,255,.12);
-
     border-radius:25px;
 
     padding:45px;
 
+    text-align:center;
+
     transition:.45s;
 
-    text-align:center;
+    cursor:pointer;
+
+}
+
+.feature::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transition:.8s;
+
+}
+
+.feature:hover::before{
+
+    left:120%;
 
 }
 
@@ -305,53 +337,143 @@ main{
 
     transform:translateY(-15px);
 
-    box-shadow:0 20px 40px rgba(0,0,0,.35);
+    border-color:#00d084;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.35),
+    0 0 25px rgba(0,208,132,.25);
 
 }
 
 .feature i{
 
-    font-size:55px;
+    width:95px;
+    height:95px;
 
-    color:#00d084;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    margin-bottom:25px;
+    margin:0 auto 25px;
 
-    transition:.4s;
+    border-radius:50%;
+
+    font-size:40px;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#00d084,#00b4ff);
+
+    box-shadow:0 10px 30px rgba(0,180,255,.3);
+
+    transition:.45s;
 
 }
 
 .feature:hover i{
 
-    transform:rotate(15deg) scale(1.2);
+    transform:rotate(10deg) scale(1.12);
 
 }
 
 .feature h2{
 
-    margin-bottom:15px;
-
     font-size:28px;
+
+    margin-bottom:18px;
+
+    font-weight:700;
 
 }
 
 .feature p{
 
-    color:#d8d8d8;
+    color:#d5d5d5;
 
     line-height:1.8;
 
-    margin-bottom:20px;
+    margin-bottom:28px;
 
 }
 
 .feature a{
 
-    color:#00b4ff;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 24px;
+
+    border-radius:30px;
+
+    background:rgba(0,208,132,.15);
+
+    color:#00d084;
 
     text-decoration:none;
 
     font-weight:600;
+
+    transition:.35s;
+
+}
+
+.feature a:hover{
+
+    background:#00d084;
+
+    color:#fff;
+
+}
+
+/* Featured FaithHub Card */
+
+#faithHub{
+
+    background:linear-gradient(
+        135deg,
+        rgba(0,208,132,.18),
+        rgba(0,180,255,.15)
+    );
+
+    border:2px solid rgba(0,208,132,.35);
+
+    transform:scale(1.03);
+
+}
+
+#faithHub::after{
+
+    content:"NEW";
+
+    position:absolute;
+
+    top:18px;
+    right:-38px;
+
+    width:140px;
+
+    text-align:center;
+
+    padding:6px 0;
+
+    background:#00d084;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transform:rotate(45deg);
+
+    letter-spacing:1px;
+
+}
+
+#faithHub:hover{
+
+    transform:translateY(-18px) scale(1.05);
 
 }
 

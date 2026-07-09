@@ -11,6 +11,8 @@ const membershipRoute = require('./router/allMemberRoute')
 const mainPageRoute = require('./router/mainRoute')
 const youthPageRoute = require('./router/youthRoute')
 const registerRoute = require('./router/authRoute')
+const postPage = require('./router/postRoute')
+const commentPage = require('./router/commentRoute')
 
 
 require('dotenv').config({path:'./config/.env'})
@@ -22,8 +24,8 @@ connectDB()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(express.urlencoded({extended: true, limit: '50mb'})) //I am limiting the image file size that the user should upload.can't take more than 50mb
+app.use(express.json({limit: '50mb'}))
 app.use(logger('dev'))
 
 // Sessions
@@ -53,6 +55,9 @@ app.use('/',mainPageRoute )
 app.use('/register', registerRoute)
 app.use('/memberList', membershipRoute)
 app.use('/youth', youthPageRoute)
+// feed page base router
+app.use('/feedPage', postPage)   // i use this ('/feedPage') when i merge this page to mkc web page
+app.use('/comment', commentPage)
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log(`The server is running on ${process.env.PORT}.`)

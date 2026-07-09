@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulpit Room</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/feedPage.css">
+</head>
+<body>
+    <header>
+        <div class="logo-area">
+            <img src="/mkc-logo.jpg" class="logo">
+        </div>
+
+        <div class="page-title">
+            <h2>FaithHub</h2>
+            <span>Church Community Feed</span>
+        </div>
+    
+         <nav>
+                <a href="/">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+        </nav>
+        
+    </header>
+    <div>
+        <p> Welcome to the Meserete Kristos Church Community Feed.
+            Stay connected with our weekly worship schedule, Bible studies,
+            prayer meetings,youth programs, church announcements, and special events.
+            May every post encourage your faith and strengthen our fellowship in Christ.</p>
+    </div>
+    <div class="church-week">
+        <form action="/feedPage/post" method="post">
+            <textarea name="sunday"  rows="4" placeholder="Sunday"></textarea>
+            <textarea name="monday"  rows="4" placeholder="Monday"></textarea>
+            <textarea name="tuesday"  rows="4" placeholder="Tuesday"></textarea>
+            <textarea name="wednesday"  rows="4" placeholder="Wednesday"></textarea>
+            <textarea name="thursday"  rows="4" placeholder="Thursday"></textarea>
+            <textarea name="friday"  rows="4" placeholder="Friday"></textarea>
+            <textarea name="saturday"  rows="4" placeholder="Saturday"></textarea>
+            <button type="submit"  class="post-icon">
+                    <i class="fa-solid fa-plus"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="weekly-post">
+
+      <%  posts.forEach(newPost => {   %>
+            <div class="post-section" data-id=" <%=newPost._id %> ">
+                <li>
+                    <span class="day-badge sunday">Sunday</span>
+                    <p><%= newPost.Sunday %></p>
+                </li>
+
+                <li>
+                    <span class="day-badge monday">Monday</span>
+                    <p><%= newPost.Monday %></p>
+                </li>
+
+                <li>
+                    <span class="day-badge tuesday">Tuesday</span>
+                    <p><%= newPost.Tuesday %></p>
+                </li>
+
+                <li>
+                    <span class="day-badge wednesday">Wednesday</span>
+                    <p><%= newPost.Wednesday %></p>
+                </li>
+
+                <li>
+                    <span class="day-badge thursday">Thursday</span>
+                    <p><%= newPost.Thursday %></p>
+                </li>
+
+                <li>
+                    <span class="day-badge friday">Friday</span>
+                    <p><%= newPost.Friday %></p>
+                </li>
+
+                <li>
+                    <span class="day-badge saturday">Saturday</span>
+                    <p><%= newPost.Saturday %></p>
+                </li> 
+                <span class="getLike"> <%=newPost.likes || 0 %> likes</span>  
+                <button class="like-Btn">
+                    <i class="fa-solid fa-heart"></i> Like
+                </button>
+                <button class="delete-Btn">
+                    <i class="fa-solid fa-trash"></i> Delete
+                </button>
+            </div>
+        <%  }) %>
+    </div>
+
+<%  allPost.forEach( casualPage => {   %>
+    <div class="banner-box" data-id="<%= casualPage._id %>">
+        <h1 class="title"> <%= casualPage.Title %> </h1>
+        <p class="description"> <%= casualPage.Caption %> </p>
+        <img class="posted-img" src="<%=casualPage.imageUrl%>" alt="posted image">
+
+        <div class="post-actions"  data-id="<%= casualPage._id %>" >
+            <button class="like-btn">
+                <i class="fa-solid fa-heart"></i>
+                <span> <%= casualPage.Likes || 0 %>  Likes </span>
+            </button>
+
+            <a class="comment-btn" href="/comment/<%= casualPage._id %>"  target="comment">
+                <i class="fa-solid fa-comment"></i>
+                <span><%= casualPage.commentCount || 0 %>  comments </span>
+            </a>
+
+            <button class="delete-Btn">
+                <i class="fa-solid fa-trash"></i>
+                Remove
+            </button>
+        </div>
+
+    </div>
+<% }) %>
+
+    <div class="casual-post">
+        <a href="/feedPage/casualPost" target="church-post" class="post-icon">
+            <i class="fa-solid fa-plus"></i>   
+        </a>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-about">
+
+                <img src="/mkc-logo.jpg" class="footer-logo">
+
+                <h3>Gofer Meda Meserete Kristos Church</h3>
+
+                <p>
+                    Building faith, strengthening fellowship, and sharing the love
+                    of Christ through worship, prayer, and community.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="/">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-newspaper"></i>
+                    Weekly Feed
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Events
+                </a>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h4>Connect With Us</h4>
+
+                <p><i class="fa-solid fa-location-dot"></i> Hossana, Ethiopia</p>
+
+                <p><i class="fa-solid fa-phone"></i> +251 xx xxx xxxx</p>
+
+                <p><i class="fa-solid fa-envelope"></i> info@mkchurch.org</p>
+
+                <div class="social-icons">
+
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <div class="copyright">
+
+        © 2026 Gofer Meda Meserete Kristos Church | All Rights Reserved
+
+    </div>
+
+    </footer>
+
+    <script type="text/javascript"  src="/casualPostMain.js"></script>
+    <script type="text/javascript"  src="/postMain.js"></script>
+
+</body>
+</html>
