@@ -5,9 +5,10 @@
   "license": "ISC",
   "author": "Bereket Woldemariyam",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "node_server.js",
   "scripts": {
-    "start": "nodemon app",
+    "start": "server.js",
+    "dev": "nodemon \"server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
