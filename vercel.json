@@ -3,13 +3,15 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["public/", "view/"]
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))",
+      "dest": "/public/$1",
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" }
+    },
     {
       "src": "/(.*)",
       "dest": "server.js"
