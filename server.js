@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 const connectDB = require('./config/connectDataBase')
 const mongoose = require('mongoose')
 const passport = require('passport')
@@ -23,7 +24,8 @@ require('./config/passport')(passport)
 connectDB()
 
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.set('views', path.join(__dirname, 'view'))
+app.use(express.static(path.join(__dirname,'public')))
 app.use(express.urlencoded({extended: true, limit: '50mb'})) //I am limiting the image file size that the user should upload.can't take more than 50mb
 app.use(express.json({limit: '50mb'}))
 app.use(logger('dev'))

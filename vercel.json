@@ -3,14 +3,13 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["public/", "view/"]
+      }
     }
   ],
   "routes": [
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))",
-      "dest": "/public/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "server.js"
