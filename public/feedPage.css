@@ -1,13 +1,22 @@
-/* ============================
-        GOOGLE FONT
-===============================*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* ======================================================
+   FAITHHUB | PULPIT ROOM
+   Modern Church Community Feed
+   Part 1
+====================================================== */
 
-*{
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Merriweather:wght@700&display=swap');
+
+/* ===============================
+   RESET
+=============================== */
+
+*,
+*::before,
+*::after{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -15,439 +24,462 @@ html{
 }
 
 body{
-    min-height:100vh;
+    font-family:'Poppins',sans-serif;
     background:
-    radial-gradient(circle at top left,#4f46e5 0%,transparent 35%),
-    radial-gradient(circle at bottom right,#0ea5e9 0%,transparent 30%),
-    linear-gradient(135deg,#07152d,#102542,#172b4d,#08101d);
-    color:#fff;
-    overflow-x:hidden;
+    radial-gradient(circle at top left,#eef7ff,#f9fbfd 55%),
+    linear-gradient(to bottom,#f7fbff,#edf5fb);
+    color:#334155;
+    min-height:100vh;
+    line-height:1.7;
+    padding-top:110px;
 }
 
-/* Floating background */
+/* ===============================
+      VARIABLES
+=============================== */
 
-body::before{
-    content:"";
-    position:fixed;
-    width:700px;
-    height:700px;
-    background:#3b82f620;
-    border-radius:50%;
-    top:-300px;
-    left:-200px;
-    filter:blur(80px);
-    animation:float1 12s infinite alternate;
-    z-index:-2;
-}
+:root{
 
-body::after{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#9333ea25;
-    border-radius:50%;
-    right:-150px;
-    bottom:-100px;
-    filter:blur(90px);
-    animation:float2 14s infinite alternate;
-    z-index:-2;
-}
+    --primary:#2F5D8C;
+    --primary-dark:#23476b;
+    --secondary:#4f87b6;
 
-@keyframes float1{
+    --gold:#D7B347;
+    --gold-light:#efd98b;
 
-    from{
-        transform:translate(0,0);
-    }
+    --background:#F4F8FB;
+    --card:#ffffff;
 
-    to{
-        transform:translate(120px,70px);
-    }
+    --text:#2e4053;
+    --text-light:#64748B;
+
+    --border:#E6EEF6;
+
+    --shadow:
+    0 10px 35px rgba(0,0,0,.08);
+
+    --shadow-hover:
+    0 18px 45px rgba(25,55,90,.18);
+
+    --radius:22px;
 
 }
 
-@keyframes float2{
+/* ===============================
+      SCROLLBAR
+=============================== */
 
-    from{
-        transform:translate(0,0);
-    }
+::-webkit-scrollbar{
+    width:10px;
+}
 
-    to{
-        transform:translate(-120px,-80px);
-    }
+::-webkit-scrollbar-track{
+    background:#edf4fa;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+    var(--primary),
+    var(--secondary));
+
+    border-radius:20px;
 
 }
 
-/*==========================
-HEADER
-===========================*/
+/* ===============================
+        HEADER
+=============================== */
 
 header{
 
+    position:fixed;
+
+    top:0;
+    left:0;
     width:100%;
-    padding:18px 7%;
+
+    z-index:999;
+
+    padding:16px 6%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,.07);
-    border-bottom:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.86);
 
-    position:sticky;
-    top:0;
-    z-index:1000;
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.logo-area{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
 
 }
 
 .logo{
 
-    width:65px;
-    height:65px;
-    border-radius:50%;
+    width:64px;
+    height:64px;
+
     object-fit:cover;
-    border:3px solid #00d4ff;
-    transition:.4s;
+
+    border-radius:50%;
+
+    border:3px solid var(--gold);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
 
 }
 
-.logo:hover{
+.page-title{
 
-    transform:rotate(360deg);
+    display:flex;
+    flex-direction:column;
 
 }
 
-header h2{
+.page-title h2{
 
-    font-size:1.5rem;
-    font-weight:700;
+    font-family:'Merriweather',serif;
+
+    color:var(--primary);
+
+    font-size:1.9rem;
+
     letter-spacing:.5px;
+
+}
+
+.page-title span{
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+}
+
+/* ===============================
+          NAV
+=============================== */
+
+nav{
+
+    display:flex;
+    gap:15px;
 
 }
 
 nav a{
 
     text-decoration:none;
-    color:white;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
     padding:12px 22px;
-    border-radius:30px;
-    background:#2563eb;
+
+    border-radius:40px;
+
     transition:.35s;
 
 }
 
 nav a:hover{
 
-    background:#3b82f6;
-    transform:translateY(-3px);
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateY(-2px);
 
 }
 
-/*==================
-WELCOME
-===================*/
+/* ===============================
+     INTRODUCTION CARD
+=============================== */
 
-body>div:nth-child(2){
+body > div:first-of-type{
 
-    width:90%;
+    width:min(1100px,92%);
+
     margin:35px auto;
-    text-align:center;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow);
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
-body>div:nth-child(2) p{
+body > div:first-of-type::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-90px;
+    right:-90px;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(215,179,71,.12);
+
+}
+
+body > div:first-of-type::after{
+
+    content:"✝";
+
+    position:absolute;
+
+    right:40px;
+    top:35px;
+
+    font-size:3.5rem;
+
+    color:rgba(47,93,140,.12);
+
+}
+
+body > div:first-of-type p{
+
+    font-size:1.06rem;
+
+    color:var(--text-light);
 
     max-width:900px;
-    margin:auto;
-    line-height:1.8;
-    color:#dbeafe;
-    font-size:17px;
 
 }
 
-/*======================
-PAGE NAME
-=======================*/
-
-.page-title{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-}
-
-.page-title h2{
-
-    font-size:2rem;
-
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    background:linear-gradient(90deg,#38bdf8,#60a5fa,#a855f7);
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-
-    text-shadow:0 0 25px rgba(56,189,248,.25);
-
-    margin-bottom:4px;
-
-}
-
-.page-title span{
-
-    color:#cbd5e1;
-
-    font-size:14px;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-}
-
-/*======================
-POST FORM
-=======================*/
+/* ===============================
+    WEEKLY POST FORM
+=============================== */
 
 .church-week{
 
-    width:92%;
-    max-width:1100px;
+    width:min(1150px,94%);
 
-    margin:40px auto;
+    margin:45px auto;
 
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(25px);
+    background:var(--card);
 
-    border-radius:22px;
-    padding:35px;
+    padding:40px;
 
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
 
 }
 
 .church-week form{
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:18px;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
 
 }
 
+/* ===============================
+       TEXTAREAS
+=============================== */
+
 textarea{
+
+    border:2px solid var(--border);
+
+    border-radius:18px;
+
+    background:#fbfdff;
+
+    padding:18px;
 
     resize:none;
 
-    border:none;
-    outline:none;
+    font-family:'Poppins';
 
-    padding:18px;
-    border-radius:18px;
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
-    font-size:15px;
+    font-size:.96rem;
 
     transition:.35s;
+
+    min-height:150px;
 
 }
 
 textarea::placeholder{
 
-    color:#bcd5ff;
+    color:#8b9bad;
+
+    font-weight:600;
 
 }
 
 textarea:focus{
 
-    transform:translateY(-5px);
-    background:#17345d;
-    box-shadow:0 0 20px #2563eb88;
+    outline:none;
+
+    border-color:var(--secondary);
+
+    box-shadow:
+    0 0 0 5px rgba(79,135,182,.12);
 
 }
 
+/* ===============================
+      CREATE BUTTON
+=============================== */
+
 .post-icon{
 
-    grid-column:1/-1;
-
-    width:65px;
-    height:65px;
-
-    margin:auto;
+    width:72px;
+    height:72px;
 
     border:none;
 
     border-radius:50%;
 
-    background:linear-gradient(45deg,#2563eb,#7c3aed);
-
-    color:white;
-
-    font-size:24px;
-
     cursor:pointer;
 
-    transition:.4s;
-
-}
-
-.post-icon:hover{
-
-    transform:scale(1.15) rotate(90deg);
-
-    box-shadow:0 0 35px #2563eb;
-
-}
-
-/*=========================
-      DAY BADGES
-==========================*/
-
-.post-section li{
-
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-
-}
-
-.post-section li p{
-
-    margin:0;
-    color:#eef4ff;
-    line-height:1.8;
-    font-size:15px;
-
-}
-
-.day-badge{
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    width:max-content;
-
-    padding:7px 18px;
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    letter-spacing:.6px;
-
     color:white;
 
-    text-transform:uppercase;
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
 
-    box-shadow:0 6px 20px rgba(0,0,0,.25);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.45rem;
+
+    margin:20px auto 0;
+
+    text-decoration:none;
+
+    box-shadow:
+    0 18px 30px rgba(47,93,140,.25);
 
     transition:.35s;
 
 }
 
-.day-badge:hover{
+.post-icon:hover{
 
-    transform:translateY(-3px) scale(1.05);
-
-}
-
-/* Individual Colors */
-
-.sunday{
-
-    background:linear-gradient(135deg,#ef4444,#dc2626);
+    transform:
+    translateY(-5px)
+    scale(1.06);
 
 }
 
-.monday{
+/* ===============================
+     RESPONSIVE HEADER
+=============================== */
 
-    background:linear-gradient(135deg,#3b82f6,#2563eb);
+@media(max-width:900px){
 
-}
+header{
 
-.tuesday{
+flex-direction:column;
 
-    background:linear-gradient(135deg,#14b8a6,#0f766e);
+gap:15px;
 
-}
-
-.wednesday{
-
-    background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+padding:18px;
 
 }
 
-.thursday{
+body{
 
-    background:linear-gradient(135deg,#f59e0b,#d97706);
-
-}
-
-.friday{
-
-    background:linear-gradient(135deg,#ec4899,#be185d);
+padding-top:170px;
 
 }
 
-.saturday{
+.page-title{
 
-    background:linear-gradient(135deg,#10b981,#047857);
+text-align:center;
+
+align-items:center;
 
 }
 
-/*=======================
-POST FEED
-=======================*/
+nav{
+
+width:100%;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+/* ======================================================
+   PART 2
+   WEEKLY FEED SECTION
+====================================================== */
+
+/* ===========================
+   WEEKLY POSTS CONTAINER
+=========================== */
 
 .weekly-post{
 
-    width:92%;
-    max-width:1200px;
-
-    margin:50px auto;
+    width:min(1150px,94%);
+    margin:45px auto;
 
     display:grid;
-
-    grid-template-columns:repeat(auto-fill,minmax(370px,1fr));
-
-    gap:30px;
+    gap:35px;
 
 }
 
+/* ===========================
+      WEEKLY CARD
+=========================== */
+
 .post-section{
 
-    list-style:none;
+    background:var(--card);
 
-    background:rgba(255,255,255,.08);
+    border-radius:28px;
 
-    backdrop-filter:blur(18px);
+    padding:35px;
 
-    border-radius:22px;
+    box-shadow:var(--shadow);
 
-    padding:25px;
+    transition:.35s;
 
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid var(--border);
 
-    transition:.4s;
+    position:relative;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-
-    animation:fadeUp .7s ease;
+    overflow:hidden;
 
 }
 
@@ -455,25 +487,50 @@ POST FEED
 
     transform:translateY(-8px);
 
-    box-shadow:0 20px 45px rgba(37,99,235,.45);
+    box-shadow:var(--shadow-hover);
 
 }
 
-/* Day Styling */
+/* Decorative background */
+
+.post-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+    right:-120px;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    rgba(47,93,140,.05);
+
+}
+
+/* ===========================
+        LIST STYLE
+=========================== */
 
 .post-section li{
 
-    margin:14px 0;
+    list-style:none;
 
-    padding:14px;
+    background:#FBFDFF;
 
-    border-left:5px solid #3b82f6;
+    border:1px solid var(--border);
 
-    border-radius:12px;
+    border-left:6px solid var(--primary);
 
-    background:rgba(255,255,255,.05);
+    border-radius:18px;
 
-    line-height:1.6;
+    padding:18px 22px;
+
+    margin-bottom:18px;
 
     transition:.3s;
 
@@ -481,115 +538,291 @@ POST FEED
 
 .post-section li:hover{
 
-    background:#214778;
+    transform:translateX(6px);
+
+    background:#ffffff;
 
 }
 
-/* Like Count */
+/* ===========================
+       DAY BADGES
+=========================== */
+
+.day-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:7px 18px;
+
+    border-radius:50px;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    color:white;
+
+    letter-spacing:.3px;
+
+    margin-bottom:10px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.10);
+
+}
+
+/* Individual colors */
+
+.sunday{
+
+    background:#2F5D8C;
+
+}
+
+.monday{
+
+    background:#4779AA;
+
+}
+
+.tuesday{
+
+    background:#5E8FB8;
+
+}
+
+.wednesday{
+
+    background:#43A047;
+
+}
+
+.thursday{
+
+    background:#F59E0B;
+
+}
+
+.friday{
+
+    background:#7C4DFF;
+
+}
+
+.saturday{
+
+    background:#D97706;
+
+}
+
+/* ===========================
+        TEXT
+=========================== */
+
+.post-section p{
+
+    color:var(--text);
+
+    margin-top:8px;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+
+}
+
+/* ===========================
+      LIKE COUNT
+=========================== */
 
 .getLike{
 
     display:block;
 
-    margin-top:20px;
+    margin-top:25px;
 
-    font-weight:700;
+    margin-bottom:15px;
 
-    color:#7dd3fc;
+    color:var(--text-light);
+
+    font-weight:600;
+
+    font-size:.95rem;
 
 }
 
-/* Buttons */
+/* ===========================
+      BUTTON AREA
+=========================== */
 
-.like-Btn,
-.delete-Btn{
+.post-section .like-Btn,
+.post-section .delete-Btn{
 
-    margin-top:18px;
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:13px 22px;
 
     border:none;
 
-    padding:12px 18px;
-
-    border-radius:12px;
+    border-radius:50px;
 
     cursor:pointer;
 
-    color:white;
+    font-size:.95rem;
 
-    font-size:15px;
+    font-weight:600;
 
     transition:.35s;
 
+    margin-right:12px;
+
 }
+
+/* Like */
 
 .like-Btn{
 
-    background:#ec4899;
-    margin-right:10px;
+    background:#FFF0F1;
+
+    color:#E53935;
 
 }
 
 .like-Btn:hover{
 
-    background:#db2777;
+    background:#E53935;
 
-    transform:translateY(-4px);
+    color:white;
+
+    transform:translateY(-3px);
 
 }
 
+/* Delete */
+
 .delete-Btn{
 
-    background:#ef4444;
+    background:#FFF7F7;
+
+    color:#B91C1C;
 
 }
 
 .delete-Btn:hover{
 
-    background:#dc2626;
-
-    transform:translateY(-4px);
-
-}
-
-.post-section a{
-
-    color:#38bdf8;
-    font-size:22px;
-    margin-left:10px;
-    text-decoration:none;
-}
-
-.post-section a:hover{
+    background:#B91C1C;
 
     color:white;
 
+    transform:translateY(-3px);
+
 }
 
-/*======================
-BANNER
-=======================*/
+/* Icons */
 
-/*=========================================
-        MODERN CASUAL POST CARD
-=========================================*/
+.like-Btn i,
+.delete-Btn i{
+
+    font-size:1rem;
+
+}
+
+/* ===========================
+      BUTTON ROW
+=========================== */
+
+.post-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.post-section .like-Btn,
+.post-section .delete-Btn{
+
+    margin-top:10px;
+
+}
+
+.post-section button{
+
+    width:fit-content;
+
+}
+
+/* ===========================
+      MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.post-section{
+
+padding:22px;
+
+}
+
+.post-section .like-Btn,
+.post-section .delete-Btn{
+
+width:100%;
+
+justify-content:center;
+
+margin-right:0;
+
+}
+
+.day-badge{
+
+font-size:.75rem;
+
+padding:6px 14px;
+
+}
+
+}
+
+/* ======================================================
+   PART 3
+   COMMUNITY FEED / CASUAL POSTS
+====================================================== */
+
+/* ===========================
+      FEED CARD
+=========================== */
 
 .banner-box{
 
-    width:min(850px,95%);
-    margin:40px auto;
+    width:min(900px,94%);
 
-    background:#162338;
+    margin:45px auto;
 
-    border-radius:22px;
+    background:var(--card);
+
+    border-radius:28px;
 
     overflow:hidden;
 
-    border:1px solid rgba(255,255,255,.08);
+    box-shadow:var(--shadow);
+
+    border:1px solid var(--border);
 
     transition:.35s;
 
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.35);
+    position:relative;
 
 }
 
@@ -597,1066 +830,740 @@ BANNER
 
     transform:translateY(-8px);
 
-    box-shadow:
-    0 30px 55px rgba(0,0,0,.45);
+    box-shadow:var(--shadow-hover);
 
 }
 
-/*--------------------------
-TITLE
---------------------------*/
+/* Decorative top bar */
 
-.banner-box .title{
+.banner-box::before{
+
+    content:"";
+
+    display:block;
+
+    width:100%;
+
+    height:6px;
+
+    background:linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary),
+    var(--gold));
+
+}
+
+/* ===========================
+      TITLE
+=========================== */
+
+.title{
+
+    font-family:'Merriweather',serif;
 
     font-size:2rem;
 
+    color:var(--primary);
+
+    padding:28px 30px 10px;
+
     text-align:center;
 
-    margin-bottom:18px;
-
-    font-weight:700;
-
-    color:white;
-
-    word-break:break-word;
+    line-height:1.4;
 
 }
 
-/*--------------------------
-DESCRIPTION
---------------------------*/
+/* ===========================
+      DESCRIPTION
+=========================== */
 
-.banner-box .description{
+.description{
 
-    width:100%;
+    padding:0 30px;
 
-    text-align:center;
+    color:var(--text-light);
 
-    color:#dbeafe;
+    font-size:1rem;
 
     line-height:1.8;
 
-    font-size:16px;
+    margin-bottom:25px;
 
-    margin-bottom:28px;
+    text-align:center;
 
     white-space:pre-wrap;
 
-    overflow-wrap:anywhere;
-
     word-break:break-word;
 
 }
 
-/*--------------------------
-IMAGE
---------------------------*/
+/* ===========================
+        IMAGE
+=========================== */
 
-.banner-box .posted-img{
+.posted-img{
+
     width:100%;
 
-    aspect-ratio:16/9;
+    height:500px;
 
     object-fit:cover;
 
-    border-radius:18px;
-
-    margin-bottom:28px;
-
     display:block;
-}
 
-/*--------------------------
-LIKE TEXT
---------------------------*/
-
-.like-amount{
-
-    font-size:1.7rem;
-
-    font-weight:700;
-
-    color:#7dd3fc;
-
-    margin-bottom:22px;
-
-}
-
-/*--------------------------
-ACTION ROW
---------------------------*/
-
-.banner-box{
-
-    --gap:15px;
-
-}
-
-.banner-box .like-btn,
-.banner-box .delete-Btn,
-.banner-box a{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    height:48px;
-
-    padding:0 22px;
-
-    border-radius:14px;
-
-    font-weight:600;
-
-    font-size:15px;
-
-    transition:.3s;
-
-}
-
-/* Like 
-COMMENT BUTTON  
-Delete */
-
-.like-btn,
-.comment-btn,
-.delete-Btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:6px;
-
-    height:42px;
-    padding:0 12px;
-
-    border:none;
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-size:14px;
-    font-weight:600;
+    transition:.45s;
 
     cursor:pointer;
 
-    transition:.25s;
-}
-.like-btn:hover{
-
-    transform:translateY(-3px);
-
 }
 
-/* Delete */
+.banner-box:hover .posted-img{
 
-.delete-Btn:hover{
-
-    transform:translateY(-3px);
+    transform:scale(1.03);
 
 }
 
-/*--------------------------
-COMMENT BUTTON
---------------------------*/
-.comment-btn:hover{
-    background:#2563eb;
-}
-
-
-.post-section .actions>*{
-
-    flex:1;
-
-}
-./*====================================
-    POST ACTION BUTTONS
-=====================================*/
+/* ===========================
+      ACTION AREA
+=========================== */
 
 .post-actions{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:20px;
-    padding-top:18px;
-    border-top:1px solid rgba(255,255,255,.08);
-}
 
-.post-actions > *{
-    flex:1;
-}
-.post-actions button,
-.post-actions a{
-    flex:1;
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    gap:8px;
 
-    height:42px;
-
-    padding:0 14px;
-
-    border:none;
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-size:14px;
-    font-weight:600;
-
-    color:#fff;
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-/* Like */
-.post-actions .like-btn{
-    background:linear-gradient(135deg,#ec4899,#be185d);
-}
-
-.post-actions .like-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(236,72,153,.35);
-}
-
-/* Comment */
-.post-actions .comment-btn{
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
-}
-
-.post-actions .comment-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(37,99,235,.35);
-}
-
-/* Delete */
-.post-actions .delete-Btn{
-    background:linear-gradient(135deg,#dc2626,#991b1b);
-}
-
-.post-actions .delete-Btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 20px rgba(220,38,38,.35);
-}
-
-.post-actions i{
-    font-size:16px;
-}
-
-
-
-/*=========================
-        FOOTER
-==========================*/
-
-.footer{
-
-    margin-top:90px;
-
-    background:rgba(255,255,255,.05);
-
-    backdrop-filter:blur(18px);
-
-    border-top:1px solid rgba(255,255,255,.1);
-
-}
-
-.footer-content{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:60px 40px;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:50px;
-
-}
-
-.footer-logo{
-
-    width:75px;
-
-    height:75px;
-
-    border-radius:50%;
-
-    margin-bottom:15px;
-
-    border:3px solid #3b82f6;
-
-}
-
-.footer h3,
-.footer h4{
-
-    margin-bottom:18px;
-
-    color:#fff;
-
-}
-
-.footer p{
-
-    color:#cbd5e1;
-
-    line-height:1.8;
-
-}
-
-.footer-links a{
-
-    display:block;
-
-    color:#dbeafe;
-
-    text-decoration:none;
-
-    margin:12px 0;
-
-    transition:.3s;
-
-}
-
-.footer-links a:hover{
-
-    color:#38bdf8;
-
-    transform:translateX(8px);
-
-}
-
-.footer-contact p{
-
-    margin:12px 0;
-
-}
-
-.footer-contact i{
-
-    color:#38bdf8;
-
-    margin-right:10px;
-
-}
-
-.social-icons{
-
-    margin-top:25px;
-
-    display:flex;
+    flex-wrap:wrap;
 
     gap:15px;
 
+    padding:30px;
+
 }
 
-.social-icons a{
+/* ===========================
+     BUTTON DESIGN
+=========================== */
 
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.08);
+.like-btn,
+.comment-btn,
+.post-actions .delete-Btn{
 
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    color:white;
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:170px;
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    cursor:pointer;
 
     transition:.35s;
 
     text-decoration:none;
 
+    font-size:.95rem;
+
+}
+
+/* ===========================
+        LIKE
+=========================== */
+
+.like-btn{
+
+    background:#FFF0F1;
+
+    color:#E53935;
+
+}
+
+.like-btn:hover{
+
+    background:#E53935;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+      COMMENT
+=========================== */
+
+.comment-btn{
+
+    background:#EEF6FF;
+
+    color:var(--primary);
+
+}
+
+.comment-btn:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* Remove underline */
+
+.comment-btn span{
+
+    text-decoration:none;
+
+}
+
+/* ===========================
+      DELETE
+=========================== */
+
+.post-actions .delete-Btn{
+
+    background:#FFF7F7;
+
+    color:#C62828;
+
+}
+
+.post-actions .delete-Btn:hover{
+
+    background:#C62828;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+        ICONS
+=========================== */
+
+.post-actions i{
+
+    font-size:1rem;
+
+}
+
+/* ===========================
+      FLOATING BUTTON
+=========================== */
+
+.casual-post{
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:35px;
+
+    z-index:999;
+
+}
+
+.casual-post .post-icon{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:50%;
+
+    font-size:1.8rem;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    box-shadow:
+    0 18px 35px rgba(47,93,140,.30);
+
+    animation:floatButton 3s ease-in-out infinite;
+
+}
+
+.casual-post .post-icon:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* Floating animation */
+
+@keyframes floatButton{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ===========================
+      MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.title{
+
+font-size:1.6rem;
+
+padding:24px 20px 10px;
+
+}
+
+.description{
+
+padding:0 20px;
+
+}
+
+.posted-img{
+
+height:280px;
+
+}
+
+.post-actions{
+
+flex-direction:column;
+
+padding:22px;
+
+}
+
+.like-btn,
+.comment-btn,
+.post-actions .delete-Btn{
+
+width:100%;
+
+}
+
+.casual-post{
+
+right:20px;
+
+bottom:20px;
+
+}
+
+.casual-post .post-icon{
+
+width:68px;
+
+height:68px;
+
+}
+
+}
+
+/* ======================================================
+   PART 4
+   FOOTER • ANIMATIONS • RESPONSIVE • UTILITIES
+====================================================== */
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+    margin-top:80px;
+    background:linear-gradient(135deg,#1F3E5A,#2F5D8C);
+    color:#fff;
+    padding:70px 6% 25px;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:45px;
+}
+
+.footer-logo{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--gold);
+    margin-bottom:18px;
+}
+
+.footer h3,
+.footer h4{
+    color:var(--gold);
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.footer p{
+    color:#dbe8f4;
+    line-height:1.8;
+}
+
+.footer-links a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#dbe8f4;
+    margin-bottom:12px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(6px);
+}
+
+.footer-contact p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:18px;
+}
+
+.social-icons a{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
 }
 
 .social-icons a:hover{
 
-    background:#2563eb;
+    background:var(--gold);
 
-    transform:translateY(-6px) rotate(10deg);
+    color:#1F3E5A;
 
-    box-shadow:0 10px 20px rgba(37,99,235,.45);
+    transform:translateY(-5px);
 
 }
 
 .copyright{
 
+    max-width:1200px;
+
+    margin:40px auto 0;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding-top:22px;
+
     text-align:center;
 
-    padding:22px;
+    color:#dbe8f4;
 
-    color:#94a3b8;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    font-size:14px;
+    font-size:.95rem;
 
 }
 
-/*==========================
-ANIMATION
-==========================*/
+/* ===========================
+   GLOBAL ANIMATIONS
+=========================== */
+
+.banner-box,
+.post-section,
+.church-week,
+body > div:first-of-type{
+
+    animation:fadeUp .6s ease both;
+
+}
 
 @keyframes fadeUp{
 
     from{
 
         opacity:0;
-        transform:translateY(30px);
+
+        transform:translateY(25px);
 
     }
 
     to{
 
         opacity:1;
+
         transform:translateY(0);
 
     }
 
 }
 
-/*==========================
-SCROLLBAR
-==========================*/
-
-::-webkit-scrollbar{
-
-    width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#07152d;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#2563eb;
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#3b82f6;
-
-}
-
-/* ==========================================================
-   INTRODUCTION TEXT
-========================================================== */
-
-body > div:first-of-type p{
-    max-width:1100px;
-    margin:35px auto;
-    padding:20px 30px;
-    text-align:center;
-    line-height:1.8;
-    font-size:16px;
-
-    color:#dbeafe;
-
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-
-/* ==========================================================
-   WEEKLY POST FORM
-========================================================== */
-
-.church-week{
-    width:95%;
-    max-width:1200px;
-    margin:40px auto;
-}
-
-
-.church-week textarea{
-
-    min-height:160px;
-
-    margin:0;
-
-}
-
-.post-icon{
-
-    width:70px;
-
-    height:70px;
-
-    border:none;
-
-    border-radius:50%;
-
-    justify-self:center;
-
-    align-self:center;
-
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-
-    color:white;
-
-    font-size:24px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:0 10px 25px rgba(37,99,235,.4);
-
-}
-
-.post-icon:hover{
-
-    transform:scale(1.1) rotate(90deg);
-
-}
-
-
-/* ==========================================================
-   WEEKLY POSTS
-========================================================== */
-
-.weekly-post{
-
-    width:95%;
-
-    max-width:1200px;
-
-    margin:50px auto;
-
-    display:grid;
-
-    gap:30px;
-
-}
-
-.post-section{
-
-    background:rgba(255,255,255,.07);
-
-    backdrop-filter:blur(20px);
-
-    border-radius:22px;
-
-    padding:30px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-
-    animation:fade .6s;
-
-}
-
-.post-section li{
-
-    list-style:none;
-
-    margin-bottom:18px;
-
-    padding:15px;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.04);
-
-}
-
-.post-section li p{
-
-    margin-top:10px;
-
-    color:#dbeafe;
-
-    line-height:1.7;
-
-}
-
-.day-badge{
-
-    display:inline-block;
-
-    padding:7px 18px;
-
-    border-radius:30px;
-
-    font-size:13px;
-
-    font-weight:600;
-
-    color:white;
-
-}
-
-
-/* Different colors */
-
-.sunday{
-background:#2563eb;
-}
-
-.monday{
-background:#059669;
-}
-
-.tuesday{
-background:#7c3aed;
-}
-
-.wednesday{
-background:#0891b2;
-}
-
-.thursday{
-background:#d97706;
-}
-
-.friday{
-background:#dc2626;
-}
-
-.saturday{
-background:#4f46e5;
-}
-
-
-/* ==========================================================
-   POST ACTIONS
-========================================================== */
-
-.post-section>a{
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:22px;
-
-    margin-right:18px;
-
-}
-
-.getLike{
-
-    margin-left:15px;
-
-    font-weight:600;
-
-    color:#93c5fd;
-
-}
-
-.like-Btn,
-.delete-Btn{
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:12px 22px;
-
-    border-radius:12px;
-
-    color:white;
-
-    font-weight:600;
-
-    transition:.3s;
-
-    margin-top:20px;
-
-    margin-right:10px;
-
-}
-
-.like-Btn{
-
-    background:linear-gradient(135deg,#ec4899,#be185d);
-
-}
-
-.like-Btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 10px 25px rgba(236,72,153,.4);
-
-}
-
-.delete-Btn{
-
-    background:linear-gradient(135deg,#dc2626,#991b1b);
-
-}
-
-.delete-Btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 10px 25px rgba(220,38,38,.4);
-
-}
-
-
-/* ==========================================================
-   CASUAL POSTS
-========================================================== */
-
-.banner-box{
-
-    width:95%;
-
-    max-width:900px;
-
-    margin:40px auto;
-
-    padding:30px;
-
-    background:rgba(255,255,255,.07);
-
-    backdrop-filter:blur(20px);
-
-    border-radius:25px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.3);
-
-}
-
-.banner-box .title{
-
-    margin-bottom:20px;
-
-    color:#ffffff;
-
-}
+/* Smooth image loading */
 
 .posted-img{
 
-    width:100%;
+    animation:imageFade .8s ease;
+
+}
+
+@keyframes imageFade{
+
+    from{
+
+        opacity:.3;
+
+        transform:scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   SELECTION COLOR
+=========================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* ===========================
+   FOCUS ACCESSIBILITY
+=========================== */
+
+button:focus,
+a:focus,
+textarea:focus{
+
+    outline:none;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+    .footer-content{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    body{
+
+        font-size:15px;
+
+    }
+
+    .church-week{
+
+        padding:25px;
+
+    }
+
+    .weekly-post{
+
+        gap:25px;
+
+    }
+
+    .banner-box{
+
+        width:95%;
+
+    }
+
+    .footer{
+
+        padding:55px 25px 25px;
+
+    }
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .footer-contact p{
+
+        justify-content:center;
+
+    }
+
+    .social-icons{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .page-title h2{
+
+        font-size:1.45rem;
+
+    }
+
+    .page-title span{
+
+        font-size:.85rem;
+
+    }
+
+    textarea{
+
+        min-height:120px;
+
+    }
+
+    .title{
+
+        font-size:1.4rem;
+
+    }
+
+    .description{
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/* ===========================
+   SMALL POLISH
+=========================== */
+
+button,
+a,
+textarea{
+
+    transition:
+    background .3s,
+    color .3s,
+    transform .3s,
+    box-shadow .3s,
+    border-color .3s;
+
+}
+
+img{
+
+    max-width:100%;
 
     display:block;
 
-    aspect-ratio:16/9;
+}
 
-    object-fit:cover;
+hr{
+
+    border:none;
+
+    border-top:1px solid var(--border);
 
 }
 
-.title{
+.hidden{
 
-    padding:25px 25px 10px;
-
-    font-size:2rem;
+    display:none !important;
 
 }
 
-.description{
+.text-center{
 
-    padding:0 25px;
-
-    color:#d8e4ff;
-
-    line-height:1.8;
+    text-align:center;
 
 }
 
-.like-amount{
-
-    color:#60a5fa;
-
-    margin-bottom:20px;
-
-}
-
-
-.banner-box a{
-
-    color:white;
-
-    font-size:22px;
-
-    margin-right:15px;
-
-}
-
-
-
-
-/* ==========================================================
-   FLOATING ADD BUTTON
-========================================================== */
-
-.casual-post{
-
-    position:fixed;
-
-    bottom:35px;
-
-    right:35px;
-
-    z-index:999;
-
-}
-
-.casual-post a{
-
-    width:75px;
-
-    height:75px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:50%;
-
-    text-decoration:none;
-
-    font-size:28px;
-
-    color:white;
-
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-
-    box-shadow:0 15px 35px rgba(37,99,235,.45);
-
-    transition:.35s;
-
-}
-
-.casual-post a:hover{
-
-    transform:scale(1.1) rotate(90deg);
-
-}
-
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-
-.footer{
-
-    margin-top:80px;
-
-    background:rgba(255,255,255,.06);
-
-    backdrop-filter:blur(20px);
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    padding:60px 8% 30px;
-
-}
-
-.footer-content{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:40px;
-
-}
-
-.footer-logo{
-
-    width:90px;
-
-    border-radius:50%;
-
-    margin-bottom:20px;
-
-}
-
-.footer h3,
-.footer h4{
-
-    margin-bottom:20px;
-
-}
-
-.footer p{
-
-    color:#d1d5db;
-
-    line-height:1.8;
-
-}
-
-.footer-links a{
-
-    display:block;
-
-    color:#dbeafe;
-
-    text-decoration:none;
-
-    margin:12px 0;
-
-    transition:.3s;
-
-}
-
-.footer-links a:hover{
-
-    color:#60a5fa;
-
-    padding-left:8px;
-
-}
-
-.social-icons{
+.mt-20{
 
     margin-top:20px;
 
 }
 
-.social-icons a{
+.mb-20{
 
-    display:inline-flex;
-
-    width:45px;
-
-    height:45px;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:50%;
-
-    margin-right:12px;
-
-    text-decoration:none;
-
-    color:white;
-
-    background:#2563eb;
-
-    transition:.35s;
+    margin-bottom:20px;
 
 }
 
-.social-icons a:hover{
-
-    transform:translateY(-5px);
-
-    background:#3b82f6;
-
-}
-
-.copyright{
-
-    text-align:center;
-
-    margin-top:45px;
-
-    color:#94a3b8;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    padding-top:25px;
-
-}
-
-/*==========================
-RESPONSIVE
-==========================*/
-
-@media(max-width:850px){
-
-header{
-
-    flex-direction:column;
-    gap:18px;
-
-}
-
-.weekly-post{
-
-    grid-template-columns:1fr;
-
-}
-
-.church-week form{
-
-    grid-template-columns:1fr;
-
-}
-
-textarea{
-
-    min-height:120px;
-
-}
-
-}
-
-@media (max-width:700px){
-
-    .banner-box{
-        padding:20px;
-    }
-
-    .banner-box .title{
-        font-size:1.45rem;
-    }
-
-    .banner-box .description{
-        font-size:15px;
-    }
-
-    .banner-box .posted-img{
-        max-height:280px;
-    }
-
-    /* Stack buttons */
-    .post-actions{
-    flex-direction:row;
-    gap:8px;
-}
-
-.post-actions button,
-.post-actions a{
-    flex:1;
-    min-width:0;
-    height:40px;
-    font-size:13px;
-    padding:0 8px;
-}
-
-.post-actions i{
-    font-size:14px;
-}
-}

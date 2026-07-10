@@ -53,6 +53,7 @@ module.exports = {
 
     createPost: async (req,res) => {
         try{
+            const getIpAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress
             await postDB.create({
                         Monday: req.body.monday,
                         Tuesday: req.body.tuesday,
@@ -63,7 +64,8 @@ module.exports = {
                         Sunday: req.body.sunday,
                         likes: req.body.likePost,
                         createdAt: new Date(),  //This property help us to know  in what time the post is created and give to the user the most recent post created by the users.
-                        completed: false
+                        completed: false,
+                        ip_address: getIpAddress
             })
             console.log(req.body, req.ip)
             console.log('G/M MKC just create a week program post')
@@ -79,6 +81,7 @@ module.exports = {
             if (!req.file) {
                 return res.status(400).send('No file uploaded.');
             }
+            const getIpAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress
         // Upload image to cloudinary
             const result = await cloudinary.uploader.upload(req.file.path);
             await casualDB.create({
@@ -90,7 +93,8 @@ module.exports = {
 //This id is the cloudinary id for every uploaded img and i want this because i called it when i need to delete the image from cloudinary specific img with image id.  
                 cloudinaryId: result.public_id, 
                 createdAt: new Date(),
-                completed: false
+                completed: false,
+                ip_address: getIpAddress
             })
             console.log(req.body, req.ip)
             console.log('MKC added general post.')

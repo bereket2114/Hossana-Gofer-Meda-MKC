@@ -39,6 +39,9 @@ const feedSchema = new mongoose.Schema({
     completed:{
         type: Boolean,
         required: true
+    },
+    ip_address:{
+        type: Buffer // maps directly to mongoDb BinData
     }
     
 
