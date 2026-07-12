@@ -3,10 +3,14 @@ const validator = require('validator')
 const User = require('../model/userAuth')
 const path = require('path')
 
- exports.getLogin = (req, res) => {
+exports.getLogin = (req, res) => {
 // If the user is already logged in redirect him to the next page (skip the login form, but this will work for one hour then the session expired and ask log in again.)
-    if (req.user) {  
-      return res.redirect('/memberList/')
+    if (req.user) {
+      if (req.user.role === 'youth') {
+        return res.redirect('/youth/under18')
+      } else {
+        return res.redirect('/memberList/')
+      } 
     }
 // If the user is new or come after one hour latter send the login page and log in again
     res.render(path.join(__dirname, '..', 'view','login.ejs'), {
@@ -17,7 +21,7 @@ const path = require('path')
 
 //This route is happening after sending the login page and  during in the middle of login process and click login button.
 // Or if there something wrong with login process send those message to the user.
-  exports.postLogin = (req, res, next) => {
+exports.postLogin = (req, res, next) => {
     const validationErrors = []  
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
@@ -63,7 +67,7 @@ const path = require('path')
   }
   
 // If the user ask a log out req redirect him to the register main page and destroy his session and cookies.
-  exports.logout = (req, res, next) => {
+exports.logout = (req, res, next) => {
     req.logout(function (err) {
       if(err) { return next(err) }
       console.log('User has logged out.')
@@ -83,12 +87,8 @@ const path = require('path')
   }
   
   //if the user ask to register send to him a register page
-  exports.getSignup = (req, res) => {
-//But if the user is already register and the session is not destroyed redirect him to the next page
-    if (req.user) {
-      return res.redirect('/memberList/')
-    }
-//Else the user is new send him the register for page.
+exports.getSignup = (req, res) => {
+//Else the user is new and want to register send him to the register for page.
     res.render(path.join(__dirname, '..', 'view','register.ejs'), {
         actionUrl: 'register/signup',
         title: 'Create Account'

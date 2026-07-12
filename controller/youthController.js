@@ -86,29 +86,50 @@ getYouthAbove18: async (req, res) => {
         }
     },
 
-    addYouth: async (req,res)=> {
-        try{
-            await dataBase.create({
-                youthFullName: req.body.fullName,
-                youthBirthDate: new Date (req.body.birthDate),
-                youthGender: req.body.gender,
-                youthPhone: req.body.phone,
-                userId: req.user.id,
-                completed: false
-            })
-            console.log('New member Added Successfully.')
-            const age = Math.floor(new Date() - new Date(req.body.birthDate) / (1000 * 60 * 60 * 24 * 365.25) )
-    // use conditional to redirect the member based on their ages
-        if( age >= 18){
-            res.redirect('/youth/above18')
-        }else{
-            res.redirect('/youth/under18')
+addYouth: async (req, res) => {
+    try {
+        console.log('Form Data Received:', req.body);
+
+        // 1. Parse the incoming date string manually to avoid timezone shifting
+        const parts = req.body.birthDate.split('-'); // Splitting "YYYY-MM-DD"
+        const birthYear = parseInt(parts[0], 10);
+        const birthMonth = parseInt(parts[1], 10) - 1; // JS months run from 0 to 11
+        const birthDay = parseInt(parts[2], 10);
+
+        const today = new Date();
+
+        // 2. Calculate the age accurately by comparing calendar dates
+        let age = today.getFullYear() - birthYear;
+        const monthDiff = today.getMonth() - birthMonth;
+
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDay)) {
+            age--;
         }
-            
-        } catch(err){
-            res.status(500).send(err.message)
+
+        // 3. Save to database
+        await dataBase.create({
+            youthFullName: req.body.fullName,
+            youthBirthDate: new Date(req.body.birthDate),
+            youthGender: req.body.gender,
+            youthPhone: req.body.phone,
+            userId: req.user.id,
+            completed: false
+        });
+
+        console.log('New member Added Successfully. Calculated age:', age);
+
+        // 4. MOVED INSIDE THE TRY BLOCK: Redirect based on calculated age
+        if (age >= 18) {
+            return res.redirect('/youth/above18');
+        } else {
+            return res.redirect('/youth/under18');
         }
-    },
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send(err.message);
+    }
+},
 
     deleteUnder18: async (req,res)=>{
         try{

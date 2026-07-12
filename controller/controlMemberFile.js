@@ -2,15 +2,34 @@ const dataBase = require('../model/membersDataBase')
 const path = require('path')
 
 function calculateAge(birthDate) {
-    if (!birthDate) return 'N/A'; // Handles missing dates gracefully
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
+    if (!birthDate) return 'N/A';
     
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    const today = new Date();
+    let birthYear, birthMonth, birthDay;
+
+    // CHECK: Is birthDate a real JavaScript Date object (from database)?
+    if (birthDate instanceof Date) {
+        birthYear = birthDate.getFullYear();
+        birthMonth = birthDate.getMonth(); // Already 0-11
+        birthDay = birthDate.getDate();
+    } else if (typeof birthDate === 'string') {
+        // Otherwise, it's a string from the form (e.g., "2000-07-12")
+        const parts = birthDate.split('-');
+        birthYear = parseInt(parts[0], 10);
+        birthMonth = parseInt(parts[1], 10) - 1; // JS months are 0-11
+        birthDay = parseInt(parts[2], 10);
+    } else {
+        return 'N/A'; // Fallback for unexpected data types
+    }
+    
+    // The calendar comparison logic stays exactly the same:
+    let age = today.getFullYear() - birthYear;
+    const monthDiff = today.getMonth() - birthMonth;
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDay)) {
         age--;
     }
+    
     return age;
 }
 
@@ -22,7 +41,7 @@ module.exports = {
         
         // 1. Fetch the data exactly as you are doing now
         const rawMembers = await dataBase.find({userId: req.user.id}).sort({ memFullName: 1 }).collation({ locale: 'en', strength: 2 });
-        const totalAmount = await dataBase.countDocuments({ completed: true });
+        const totalAmount = await dataBase.countDocuments({ userId: req.user.id, completed: true });
 
         // 2. Convert Mongoose documents to plain objects and calculate age
         const memberList = rawMembers.map(doc => {
