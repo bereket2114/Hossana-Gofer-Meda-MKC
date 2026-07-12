@@ -84,19 +84,26 @@ exports.logout = (req, res, next) => {
     })
   })
 
-  }
-  
-  //if the user ask to register send to him a register page
+}
+
 exports.getSignup = (req, res) => {
-//Else the user is new and want to register send him to the register for page.
-    res.render(path.join(__dirname, '..', 'view','register.ejs'), {
-        actionUrl: 'register/signup',
-        title: 'Create Account'
-    })
+// If already logged in, send them to their correct dashboard instead of the signup page
+  if (req.user) {
+    if (req.user.role === 'youth') {
+      return res.redirect('/youth/under18');
+    } else {
+      return res.redirect('/memberList/');
+    }
   }
+//If the user new and ask to register send to him a register page
+  res.render(path.join(__dirname, '..', 'view', 'register.ejs'), {
+    actionUrl: '/register/signup',
+    title: 'Create Account'
+  });
+}
  
 //This route is happening during in the middle of register or after click the register button. if there is any error or mistake send those messages
-  exports.postSignup = async (req, res, next) => {
+exports.postSignup = async (req, res, next) => {
     const validationErrors = []
     if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
     if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'Password must be at least 8 characters long' })
