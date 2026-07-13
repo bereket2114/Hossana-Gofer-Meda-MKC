@@ -34,7 +34,7 @@ module.exports = {
                     }
                 }, { $sort: {createdAt : -1} }    // Sort by a new first.
             ])
-            res.render(path.join(__dirname, '..', 'view', 'feedPage.ejs'), { 
+            res.render( 'feedPage' , { 
                 posts: post,
                 allPost: casualPost,
             })
@@ -45,7 +45,7 @@ module.exports = {
 
     getCasualPage: (req,res)=> {
         try{
-            res.render(path.join(__dirname, '..', 'view', 'bannerPost.ejs'))
+            res.render('bannerPost')
         } catch(err){
             console.error(err)
         }

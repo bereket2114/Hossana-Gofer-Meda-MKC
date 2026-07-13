@@ -23,8 +23,8 @@ require('./config/passport')(passport)
 
 connectDB()
 
-//app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'view'))
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname,'views'))
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.urlencoded({extended: true, limit: '50mb'})) //I am limiting the image file size that the user should upload.can't take more than 50mb
 app.use(express.json({limit: '50mb'}))

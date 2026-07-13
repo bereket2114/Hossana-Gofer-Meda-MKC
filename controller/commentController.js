@@ -8,7 +8,7 @@ module.exports = {
     // Get the post id from the url parameters
             const currentPostId = req.params.id
             const Comment = await commentDb.find({PostId: currentPostId }).sort({createdAt: "desc"}).lean()
-            res.render(path.join(__dirname, '..', 'view', 'commentPage.ejs'), { 
+            res.render( 'commentPage' , { 
                 Comments: Comment,
                 postIds: currentPostId,
              })

@@ -52,7 +52,7 @@ module.exports = {
         });
 
         // 3. Render the page with the updated list
-        res.render(path.join(__dirname, '..', 'view', 'formTable.ejs'), { 
+        res.render( 'formTable' , { 
             members: memberList, 
             amount: totalAmount 
         });

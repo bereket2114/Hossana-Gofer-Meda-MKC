@@ -26,7 +26,7 @@ module.exports = {
 
                 });
 
-                res.render(path.join(__dirname, '..', 'view', 'under18.ejs'), {
+                res.render( 'under18' , {
                     under18Youth: processedYouth,
                     amountUnder: processedYouth.length
                 });
@@ -55,7 +55,7 @@ getYouthAbove18: async (req, res) => {
                 };
                 });
 
-                res.render(path.join(__dirname, '..', 'view', 'above18.ejs'), {
+                res.render( 'above18' , {
                     above18Youth: processedYouth,
                     amountAbove: processedYouth.length
                 });

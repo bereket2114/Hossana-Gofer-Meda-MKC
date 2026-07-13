@@ -13,7 +13,7 @@ exports.getLogin = (req, res) => {
       } 
     }
 // If the user is new or come after one hour latter send the login page and log in again
-    res.render(path.join(__dirname, '..', 'view','login.ejs'), {
+    res.render( 'login' , {
         actionUrl: '/register/login',
         title: 'Member Login'
     })
@@ -96,7 +96,7 @@ exports.getSignup = (req, res) => {
     }
   }
 //If the user new and ask to register send to him a register page
-  res.render(path.join(__dirname, '..', 'view', 'register.ejs'), {
+  res.render( 'register.ejs' , {
     actionUrl: '/register/signup',
     title: 'Create Account'
   });
