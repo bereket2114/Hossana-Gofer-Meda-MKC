@@ -514,74 +514,102 @@ textarea:focus{
 }
 
 
-
-
 /* ===============================
  IMAGE UPLOAD
 ================================ */
 
-
 .upload-btn{
 
-
     display:flex;
-
-
     align-items:center;
-
     justify-content:center;
+    gap:18px;
 
+    width:100%;
 
-    gap:12px;
-
-
-    padding:16px;
-
-
-    border-radius:50px;
-
+    margin-bottom: 30px;
+    padding:18px 22px;
+    
+    border:2px dashed var(--secondary);
+    border-radius:22px;
 
     background:#EEF6FF;
 
-
-    color:var(--primary);
-
-
-    font-weight:600;
-
-
     cursor:pointer;
 
-
-    margin-bottom:25px;
-
-
-    transition:.3s;
-
+    transition:.35s ease;
 
 }
-
-
 
 .upload-btn:hover{
 
-
     background:var(--primary);
+    border-color:var(--primary);
+    color:#fff;
 
-    color:white;
+    transform:translateY(-2px);
 
+    box-shadow:0 12px 30px rgba(47,93,140,.18);
 
 }
-
-
 
 .upload-btn input{
-
-
     display:none;
+}
+
+/* Upload icon */
+
+.upload-btn i{
+
+    font-size:2rem;
+    color:var(--gold);
+    flex-shrink:0;
+
+    transition:.3s;
 
 }
 
+.upload-btn:hover i{
+    color:#FFD86A;
+}
+
+/* Upload text */
+
+.upload-text{
+
+    display:flex;
+    flex-direction:column;
+
+    line-height:1.35;
+
+}
+
+/* Main text */
+
+.upload-text strong{
+
+    font-size:1rem;
+    font-weight:700;
+    color:var(--primary);
+
+}
+
+/* Small description */
+
+.upload-text small{
+
+    font-size:.82rem;
+    color:var(--light);
+    margin-top:3px;
+
+}
+
+.upload-btn:hover .upload-text strong,
+.upload-btn:hover .upload-text small{
+
+    color:#fff;
+
+}
 
 
 
