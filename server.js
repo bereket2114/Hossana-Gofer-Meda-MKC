@@ -61,6 +61,11 @@ app.use('/youth', youthPageRoute)
 app.use('/feedPage', postPage)   // i use this ('/feedPage') when i merge this page to mkc web page
 app.use('/comment', commentPage)
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Internal Server Error");
+});
+
 app.listen(process.env.PORT || 3000,()=>{
     console.log(`The server is running on ${process.env.PORT}.`)
 })
