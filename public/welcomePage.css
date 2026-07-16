@@ -213,58 +213,57 @@ main{
 }
 
 /* ===========================
-   BUTTONS
+   YEARLY THEME
 =========================== */
 
-.buttons{
+.year-theme{
+    margin:45px auto 0;
+    max-width:750px;
+    padding:28px 35px;
 
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
 
+    border:1px solid rgba(255,255,255,.15);
+    border-left:5px solid #00d084;
+
+    border-radius:22px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+    animation:fadeUp 1.2s ease;
 }
 
-.btn{
-
-    text-decoration:none;
-
-    padding:18px 42px;
-
-    border-radius:50px;
-
-    background:linear-gradient(135deg,#00d084,#00b4ff);
-
-    color:white;
-
+.year-theme p{
+    font-size:28px;
+    line-height:1.8;
     font-weight:600;
-
-    transition:.4s;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-
+    color:white;
+    margin-bottom:18px;
 }
 
-.btn:hover{
+.year-theme span{
+    display:inline-block;
 
-    transform:translateY(-8px);
+    padding:8px 18px;
 
-    box-shadow:0 25px 45px rgba(0,180,255,.45);
+    border-radius:30px;
 
+    background:rgba(0,208,132,.15);
+
+    color:#00d084;
+
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:.5px;
 }
 
-.btn-outline{
-
-    background:transparent;
-
-    border:2px solid #00d084;
-
-}
-
-.btn-outline:hover{
-
-    background:#00d084;
-
+.year-theme h3{
+    color:#00d084;
+    margin-bottom:18px;
+    font-size:18px;
+    text-transform:uppercase;
+    letter-spacing:2px;
 }
 
 /* ===========================
