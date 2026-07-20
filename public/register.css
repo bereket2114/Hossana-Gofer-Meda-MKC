@@ -9,33 +9,48 @@
 }
 
 body{
+
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    padding:40px 20px;
 
     background:
-    linear-gradient(rgba(6,24,49,.82),rgba(6,24,49,.82)),
+    linear-gradient(rgba(8,27,51,.82),rgba(8,27,51,.82)),
     url("/church-bg.jpg");
 
     background-size:cover;
     background-position:center;
     background-attachment:fixed;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    color:white;
 }
 
 /* ================= HEADER ================= */
 
 header{
+
     width:100%;
-    max-width:1200px;
+    padding:18px 8%;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    margin-bottom:40px;
+    position:sticky;
+    top:0;
+
+    margin-bottom: 3%;
+
+    backdrop-filter:blur(12px);
+
+    background:rgba(255,255,255,.08);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    z-index:1000;
+
 }
 
 .logo{

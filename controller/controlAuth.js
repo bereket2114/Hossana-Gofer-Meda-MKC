@@ -131,7 +131,14 @@ postSignup : async (req, res, next) => {
   
     if (validationErrors.length) {
         req.flash('errors', validationErrors)
-        return res.redirect('/register/signup') // redirect to the sign up page
+//This redirect the user to the page where he was from(if he was in the admin registration form this redirect him to that page).
+//(if its not redirect him to member registration form)
+        if( req.path.includes('admin') || req.body.role === 'admin' ){
+          return res.redirect('/register/adminSignup')
+        } {
+          return res.redirect('/register/signup') // redirect to the sign up page
+        }
+        
     }
     req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
 
@@ -148,30 +155,38 @@ postSignup : async (req, res, next) => {
     const youthAmount = parseInt( process.env.Max_YouthUser,10) || 1
     const generalAmount = parseInt( process.env.Max_GeneralUser,10) || 1
 
-
+// Check if the user is already Exist or not
     const existingUser = await User.findOne({
       $or: [
         {email: email},
         {userName: username}
       ]
     })
+
     if (existingUser) {
         req.flash('errors', { msg: 'Account with that email address or username already exists.' })
-        return res.redirect('/register/signup')
-        return;
+
+        if( req.path.includes('admin') || req.body.role === 'admin' ){
+          return res.redirect('/register/adminSignup')
+        } {
+          return res.redirect('/register/signup')
+        }
+        
     }
+
+    
 //Enforce user limit and by doing this i control the login user in my web app
     if( role === 'general' && generalCount >= generalAmount ){
-          req.flash('errors', { msg: 'Registration closed: Maximum general users reached' } )
+          req.flash('errors', { msg: 'Registration closed: Maximum General users reached' } )
           return res.redirect('/register/signup')    
     }
     if( role === 'youth' && youthCount >= youthAmount ){
-          req.flash('errors', { msg: 'Registration closed: Maximum youth users reached' } )
+          req.flash('errors', { msg: 'Registration closed: Maximum Youth users reached' } )
           return res.redirect('/register/signup')    
     }
     
     if( role === 'admin' && adminCount >= adminAmount ){
-          req.flash('errors', { msg: 'Registration closed: Maximum admin users reached' } )
+          req.flash('errors', { msg: 'Registration closed: Maximum Admin users reached' } )
           return res.redirect('/register/adminSignup')
     }
     const user = new User({
