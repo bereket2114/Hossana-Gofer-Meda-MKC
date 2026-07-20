@@ -1,5 +1,5 @@
 
-const casualPostDlt = document.querySelectorAll('.delete-Btn')
+const casualPostDlt = document.querySelectorAll('.casual-delete-Btn')
 const likesCas = document.querySelectorAll('.like-btn')
 
 Array.from(casualPostDlt).forEach(el=>{
@@ -12,16 +12,18 @@ Array.from(likesCas).forEach(el=>{
 
 
 // JS function for my back-end logic below here
-async function removePost() {
-    const casualDel = this.parentNode.dataset.id.trim()
+async function removePost(event) {
+   const element = event.currentTarget;
+   const id = element.dataset.id;
+   const casualDel = id.trim()
+// we can use the above code to make it safe to get the dataset ID from our ejs file(this target the the thing we want, 
+// not looking the parentNode, this parentNode fail if the tag is not in that parentNode/parent element)
+//but the above works everywhere, because it target the tag simply
 
-// we can use instead of the above both work properly.
-  //  const element = event.currentTarget;
-  //  const id = element.dataset.id;
-  //  const postDel = id.trim()
-
+   // const casualDel = this.parentNode.dataset.id.trim()
+        
     try{
-        const result = await fetch('/feedPage/removeCasual',{ // this will be ('/feedPage/remove') when i merge it 
+        const result = await fetch('/feedPage/removeCasual',{ 
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -30,12 +32,13 @@ async function removePost() {
         })
         const data = await result.json()
         console.log(data)
-        location.reload()
+        if (result.ok) location.reload();
 
     } catch (err) {
         console.error(err)
     }
-}
+
+}   
 
 async function likeCasualPost (){
 

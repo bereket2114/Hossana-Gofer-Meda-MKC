@@ -21,7 +21,7 @@ async function removePost() {
   //  const postDel = id.trim()
 
     try{
-        const result = await fetch('/feedPage/remove',{ // this will be ('/feedPage/remove') when i merge it 
+        const result = await fetch('/feedPage/remove',{ 
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

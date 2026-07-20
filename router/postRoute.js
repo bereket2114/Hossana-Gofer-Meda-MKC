@@ -2,6 +2,11 @@ const express = require('express')
 const router = express.Router()
 const upload = require("../middleware/multer");
 const postController = require('../controller/feedPageController')
+const { ensureAuth } = require('../middleware/ensureAuth')
+
+
+//Set up Admin page 
+router.get('/adminPostPage', ensureAuth, postController.getAdminPage)
 
 // now i am creating my page route
 router.get('/', postController.getPost)

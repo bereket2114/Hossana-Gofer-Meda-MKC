@@ -20,6 +20,10 @@ const bannerSchema = new mongoose.Schema({
         type: String,
         required: true 
     },
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     createdAt: {
         type: Date,
         default: Date.now
@@ -28,9 +32,7 @@ const bannerSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    ip_address:{
-        type: Buffer // maps directly to mongoDb BinData
-    } } , { timestamps: true })
+} , { timestamps: true })
 // Before a post is removed, delete all comments linked to it
     bannerSchema.pre('findOneAndDelete', async function () {
         try{

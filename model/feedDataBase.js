@@ -40,6 +40,10 @@ const feedSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
+    userId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     ip_address:{
         type: Buffer // maps directly to mongoDb BinData
     }

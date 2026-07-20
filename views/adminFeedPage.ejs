@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/adminfeedPage.css">
+</head>
+<body>
+    <header>
+
+        <div class="logo-area">
+            <img src="/mkc-logo.jpg" class="logo">
+        </div>
+
+        <div class="page-title">
+            <h2>Admin</h2>
+            <span>Church Community Feed</span>
+        </div>
+    
+         <nav>
+            <a href="/">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+            <a  class="back-btn" href="/feedPage/" target="feed">
+                <i class="fa-solid fa-arrow-left"></i>
+                Feed
+            </a>
+
+            <a href="/register/logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </nav>
+        
+    </header>
+    <div>
+        <p> Welcome to the Hossana Gofer Meda Meserete Kristos Church Community Feed.
+            Stay connected with our weekly worship schedule, Bible studies,
+            prayer meetings,youth programs, church announcements, and special events.
+            May every post encourage your faith and strengthen our fellowship in Christ.</p>
+    </div>
+    <div class="church-week">
+        <form action="/feedPage/post" method="post">
+            <textarea name="sunday"  rows="4" placeholder="Sunday"></textarea>
+            <textarea name="monday"  rows="4" placeholder="Monday"></textarea>
+            <textarea name="tuesday"  rows="4" placeholder="Tuesday"></textarea>
+            <textarea name="wednesday"  rows="4" placeholder="Wednesday"></textarea>
+            <textarea name="thursday"  rows="4" placeholder="Thursday"></textarea>
+            <textarea name="friday"  rows="4" placeholder="Friday"></textarea>
+            <textarea name="saturday"  rows="4" placeholder="Saturday"></textarea>
+            <button type="submit"  class="post-icon">
+                    <i class="fa-solid fa-plus"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="casual-post">
+        <a href="/feedPage/casualPost" target="church-post" class="post-icon">
+            <i class="fa-solid fa-plus"></i>   
+        </a>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-about">
+
+                <img src="/mkc-logo.jpg" class="footer-logo">
+
+                <h3>Gofer Meda Meserete Kristos Church</h3>
+
+                <p>
+                    Building faith, strengthening fellowship, and sharing the love
+                    of Christ through worship, prayer, and community.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="/">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-newspaper"></i>
+                    Weekly Feed
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Events
+                </a>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h4>Connect With Us</h4>
+
+                <p><i class="fa-solid fa-location-dot"></i> Hossana, Ethiopia</p>
+
+                <p><i class="fa-solid fa-phone"></i> +251 xx xxx xxxx</p>
+
+                <p><i class="fa-solid fa-envelope"></i> info@mkchurch.org</p>
+
+                <div class="social-icons">
+
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <div class="copyright">
+
+        © 2026 Gofer Meda Meserete Kristos Church | All Rights Reserved
+
+    </div>
+
+    </footer>
+</body>
+</html>

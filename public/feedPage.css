@@ -278,125 +278,6 @@ body > div:first-of-type p{
     WEEKLY POST FORM
 =============================== */
 
-.church-week{
-
-    width:min(1150px,94%);
-
-    margin:45px auto;
-
-    background:var(--card);
-
-    padding:40px;
-
-    border-radius:30px;
-
-    box-shadow:var(--shadow);
-
-}
-
-.church-week form{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
-    gap:22px;
-
-}
-
-/* ===============================
-       TEXTAREAS
-=============================== */
-
-textarea{
-
-    border:2px solid var(--border);
-
-    border-radius:18px;
-
-    background:#fbfdff;
-
-    padding:18px;
-
-    resize:none;
-
-    font-family:'Poppins';
-
-    font-size:.96rem;
-
-    transition:.35s;
-
-    min-height:150px;
-
-}
-
-textarea::placeholder{
-
-    color:#8b9bad;
-
-    font-weight:600;
-
-}
-
-textarea:focus{
-
-    outline:none;
-
-    border-color:var(--secondary);
-
-    box-shadow:
-    0 0 0 5px rgba(79,135,182,.12);
-
-}
-
-/* ===============================
-      CREATE BUTTON
-=============================== */
-
-.post-icon{
-
-    width:72px;
-    height:72px;
-
-    border:none;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    color:white;
-
-    background:
-    linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary));
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:1.45rem;
-
-    margin:20px auto 0;
-
-    text-decoration:none;
-
-    box-shadow:
-    0 18px 30px rgba(47,93,140,.25);
-
-    transition:.35s;
-
-}
-
-.post-icon:hover{
-
-    transform:
-    translateY(-5px)
-    scale(1.06);
-
-}
 
 /* ===============================
      RESPONSIVE HEADER
@@ -405,12 +286,13 @@ textarea:focus{
 @media(max-width:900px){
 
 header{
-
 flex-direction:column;
 
 gap:15px;
 
-padding:18px;
+padding:2px;
+
+margin-bottom: 10%;
 
 }
 
@@ -660,32 +542,48 @@ flex-wrap:wrap;
 /* ===========================
       BUTTON AREA
 =========================== */
+.weekly-post .post-section .like-Btn{
+    padding: 0 20px;
+}
+
+.weekly-post .post-section .created-date{
+    padding:10px 15px;
+}
 
 .post-section .like-Btn,
-.post-section .delete-Btn{
+.post-section .delete-Btn,
+.post-section .created-date{
 
-    display:inline-flex;
+    display:inline-flex !important;
 
     align-items:center;
+    justify-content:center;
 
     gap:8px;
 
-    padding:13px 22px;
+    width:auto !important;
+    min-width:unset;
+    max-width:max-content;
+
+    flex:none !important;
+
+    padding:12px 18px;
 
     border:none;
 
-    border-radius:50px;
+    border-radius:30px;
 
-    cursor:pointer;
-
-    font-size:.95rem;
+    font-size:.9rem;
 
     font-weight:600;
 
-    transition:.35s;
+    cursor:pointer;
 
-    margin-right:12px;
+    text-decoration:none;
 
+    transition:.3s;
+
+    white-space:nowrap;
 }
 
 /* Like */
@@ -950,7 +848,7 @@ padding:6px 14px;
 
 .like-btn,
 .comment-btn,
-.post-actions .delete-Btn{
+.post-actions .casual-delete-Btn{
 
     display:flex;
 
@@ -960,9 +858,9 @@ padding:6px 14px;
 
     gap:10px;
 
-    min-width:170px;
+    min-width:145px;
 
-    padding:14px 22px;
+    padding:11px 18px;
 
     border:none;
 
@@ -976,7 +874,7 @@ padding:6px 14px;
 
     text-decoration:none;
 
-    font-size:.95rem;
+    font-size:.92rem;
 
 }
 
@@ -1000,6 +898,8 @@ padding:6px 14px;
 
     transform:translateY(-3px);
 
+    box-shadow:0 10px 25px rgba(41,91,138,.15);
+
 }
 
 /* ===========================
@@ -1022,6 +922,8 @@ padding:6px 14px;
 
     transform:translateY(-3px);
 
+    box-shadow:0 10px 25px rgba(41,91,138,.15);
+
 }
 
 /* Remove underline */
@@ -1036,7 +938,7 @@ padding:6px 14px;
       DELETE
 =========================== */
 
-.post-actions .delete-Btn{
+.post-actions .casual-delete-Btn{
 
     background:#FFF7F7;
 
@@ -1044,7 +946,7 @@ padding:6px 14px;
 
 }
 
-.post-actions .delete-Btn:hover{
+.post-actions .casual-delete-Btn:hover{
 
     background:#C62828;
 
@@ -1052,6 +954,127 @@ padding:6px 14px;
 
     transform:translateY(-3px);
 
+    box-shadow:0 10px 25px rgba(41,91,138,.15);
+
+}
+
+/* =========================================
+   WEEKLY POST ACTIONS
+========================================= */
+
+.post-section{
+
+    position:relative;
+}
+
+.post-section .getLike{
+
+    margin-top:15px;
+}
+
+.post-section .like-Btn,
+.post-section .casual-delete-Btn,
+.post-section .createdAt,
+.post-section .admin-badge{
+
+
+    width:auto !important;
+    flex:none !important;
+    display:inline-flex !important;
+
+    margin-top:10px;
+}
+
+.post-section{
+
+    display:flex;
+    flex-direction:column;
+}
+/* =========================================
+   CREATED DATE
+========================================= */
+
+.banner-box .created-date{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:7px 18px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#f4f8fb;
+
+    color:#7B8794;
+
+    font-size:.88rem;
+
+    font-weight:500;
+
+    cursor:default;
+
+    box-shadow:
+    inset 0 0 0 1px #dbe5ef;
+}
+
+.created-date:hover{
+
+    background:#eef6ff;
+
+}
+
+
+/* =========================================
+   WEEKLY ACTIONs
+========================================= */
+
+
+
+.weekly-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+/* =========================================
+   ADMIN BADGE
+========================================= */
+
+.admin-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 18px;
+
+    background:linear-gradient(135deg,#D7B347,#F0C95A);
+
+    color:#fff;
+
+    border-radius:30px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    box-shadow:0 8px 18px rgba(215,179,71,.25);
+}
+
+.admin-tag i{
+    font-size:.9rem;
 }
 
 /* ===========================
@@ -1064,141 +1087,91 @@ padding:6px 14px;
 
 }
 
-/* ===========================
-      FLOATING BUTTON
-=========================== */
-
-.casual-post{
-
-    position:fixed;
-
-    right:35px;
-
-    bottom:35px;
-
-    z-index:999;
-
-}
-
-.casual-post .post-icon{
-
-    width:78px;
-
-    height:78px;
-
-    border-radius:50%;
-
-    font-size:1.8rem;
-
-    background:linear-gradient(
-    135deg,
-    var(--primary),
-    var(--secondary));
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:white;
-
-    text-decoration:none;
-
-    box-shadow:
-    0 18px 35px rgba(47,93,140,.30);
-
-    animation:floatButton 3s ease-in-out infinite;
-
-}
-
-.casual-post .post-icon:hover{
-
-    transform:scale(1.08);
-
-}
-
-/* Floating animation */
-
-@keyframes floatButton{
-
-0%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-8px);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
-}
 
 /* ===========================
       MOBILE
 =========================== */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
-.title{
-
-font-size:1.6rem;
-
-padding:24px 20px 10px;
-
-}
-
-.description{
-
-padding:0 20px;
-
-}
-
-.posted-img{
-
-height:280px;
-
-}
-
-.post-actions{
+.weekly-footer{
 
 flex-direction:column;
 
-padding:22px;
+align-items:flex-start;
 
 }
 
-.like-btn,
-.comment-btn,
-.post-actions .delete-Btn{
+.weekly-actions{
 
-width:100%;
+justify-content:flex-start;
 
 }
 
-.casual-post{
+.like-Btn,
+.delete-Btn{
 
-right:20px;
+width:auto !important;
 
-bottom:20px;
+padding:9px 16px;
+
+font-size:.85rem;
+
+}
+
+.admin-tag{
+
+margin-left:0;
 
 }
 
-.casual-post .post-icon{
+.created-date{
 
-width:68px;
-
-height:68px;
+margin-bottom:8px;
 
 }
+
+}
+
+.back-btn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    background:#fff;
+
+    color:var(--primary);
+
+    border:2px solid var(--border);
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.back-btn:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateX(-4px);
+
+}
+
+.back-btn i{
+
+    font-size:.95rem;
 
 }
 

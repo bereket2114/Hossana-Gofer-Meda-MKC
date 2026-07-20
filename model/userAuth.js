@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
     role:{
       type: String,
       required: true,
-      enum: ['general', 'youth'],
+      enum: ['general', 'youth', 'admin'],
       default: 'general',//This automatically add the old data in general role that had not the role or this update(if there is any document added before this role property update idea)
     }
 },

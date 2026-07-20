@@ -1,0 +1,937 @@
+/* ======================================================
+   FAITHHUB | PULPIT ROOM
+   Modern Church Community Feed
+   Part 1
+====================================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Merriweather:wght@700&display=swap');
+
+/* ===============================
+   RESET
+=============================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+    radial-gradient(circle at top left,#eef7ff,#f9fbfd 55%),
+    linear-gradient(to bottom,#f7fbff,#edf5fb);
+    color:#334155;
+    min-height:100vh;
+    line-height:1.7;
+    padding-top:110px;
+}
+
+/* ===============================
+      VARIABLES
+=============================== */
+
+:root{
+
+    --primary:#2F5D8C;
+    --primary-dark:#23476b;
+    --secondary:#4f87b6;
+
+    --gold:#D7B347;
+    --gold-light:#efd98b;
+
+    --background:#F4F8FB;
+    --card:#ffffff;
+
+    --text:#2e4053;
+    --text-light:#64748B;
+
+    --border:#E6EEF6;
+
+    --shadow:
+    0 10px 35px rgba(0,0,0,.08);
+
+    --shadow-hover:
+    0 18px 45px rgba(25,55,90,.18);
+
+    --radius:22px;
+
+}
+
+/* ===============================
+      SCROLLBAR
+=============================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf4fa;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+    var(--primary),
+    var(--secondary));
+
+    border-radius:20px;
+
+}
+
+/* ===============================
+        HEADER
+=============================== */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:999;
+
+    padding:16px 6%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,.86);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.logo-area{
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+}
+
+.logo{
+
+    width:64px;
+    height:64px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid var(--gold);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.page-title{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.page-title h2{
+
+    font-family:'Merriweather',serif;
+
+    color:var(--primary);
+
+    font-size:1.9rem;
+
+    letter-spacing:.5px;
+
+}
+
+.page-title span{
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+
+}
+
+/* ===============================
+          NAV
+=============================== */
+
+nav{
+
+    display:flex;
+    gap:15px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    transition:.35s;
+
+}
+
+nav a:hover{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===============================
+     INTRODUCTION CARD
+=============================== */
+
+body > div:first-of-type{
+
+    width:min(1100px,92%);
+
+    margin:35px auto;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+body > div:first-of-type::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-90px;
+    right:-90px;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(215,179,71,.12);
+
+}
+
+body > div:first-of-type::after{
+
+    content:"✝";
+
+    position:absolute;
+
+    right:40px;
+    top:35px;
+
+    font-size:3.5rem;
+
+    color:rgba(47,93,140,.12);
+
+}
+
+body > div:first-of-type p{
+
+    font-size:1.06rem;
+
+    color:var(--text-light);
+
+    max-width:900px;
+
+}
+
+/* ===============================
+    WEEKLY POST FORM
+=============================== */
+
+.church-week{
+
+    width:min(1150px,94%);
+
+    margin:45px auto;
+
+    background:var(--card);
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.church-week form{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+
+}
+
+/* ===============================
+       TEXT AREAS
+=============================== */
+
+textarea{
+
+    border:2px solid var(--border);
+
+    border-radius:18px;
+
+    background:#fbfdff;
+
+    padding:18px;
+
+    resize:none;
+
+    font-family:'Poppins';
+
+    font-size:.96rem;
+
+    transition:.35s;
+
+    min-height:150px;
+
+}
+
+textarea::placeholder{
+
+    color:#8b9bad;
+
+    font-weight:600;
+
+}
+
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--secondary);
+
+    box-shadow:
+    0 0 0 5px rgba(79,135,182,.12);
+
+}
+
+/* ===============================
+      CREATE BUTTON
+=============================== */
+
+.post-icon{
+
+    width:72px;
+    height:72px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.45rem;
+
+    margin:20px auto 0;
+
+    text-decoration:none;
+
+    box-shadow:
+    0 18px 30px rgba(47,93,140,.25);
+
+    transition:.35s;
+
+}
+
+.post-icon:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.06);
+
+}
+
+/* ===============================
+     RESPONSIVE HEADER
+=============================== */
+
+@media(max-width:900px){
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+padding:3px;
+
+}
+
+body{
+
+padding-top:170px;
+
+}
+
+.page-title{
+
+text-align:center;
+
+align-items:center;
+
+}
+
+nav{
+
+width:100%;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+}
+
+}
+
+
+
+
+/* ======================================================
+   PART 3
+   COMMUNITY FEED / CASUAL POSTS
+====================================================== */
+
+/* ===========================
+    FEED CARD
+=========================== */
+
+
+
+
+
+
+/* =========================================
+   ADMIN BADGE
+========================================= */
+
+
+
+
+.casual-post{
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:35px;
+
+    z-index:999;
+
+}
+
+.casual-post .post-icon{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:50%;
+
+    font-size:1.8rem;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    box-shadow:
+    0 18px 35px rgba(47,93,140,.30);
+
+    animation:floatButton 3s ease-in-out infinite;
+
+}
+
+.casual-post .post-icon:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* Floating animation */
+
+@keyframes floatButton{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ===========================
+      MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.post-actions{
+
+flex-direction:column;
+
+padding:22px;
+
+}
+
+.casual-post{
+
+right:20px;
+
+bottom:20px;
+
+}
+
+.casual-post .post-icon{
+
+width:68px;
+
+height:68px;
+
+}
+
+}
+
+/* ======================================================
+   PART 4
+   FOOTER • ANIMATIONS • RESPONSIVE • UTILITIES
+====================================================== */
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer{
+    margin-top:80px;
+    background:linear-gradient(135deg,#1F3E5A,#2F5D8C);
+    color:#fff;
+    padding:70px 6% 25px;
+}
+
+.footer-content{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:45px;
+}
+
+.footer-logo{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--gold);
+    margin-bottom:18px;
+}
+
+.footer h3,
+.footer h4{
+    color:var(--gold);
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.footer p{
+    color:#dbe8f4;
+    line-height:1.8;
+}
+
+.footer-links a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#dbe8f4;
+    margin-bottom:12px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#fff;
+    transform:translateX(6px);
+}
+
+.footer-contact p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:18px;
+}
+
+.social-icons a{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.social-icons a:hover{
+
+    background:var(--gold);
+
+    color:#1F3E5A;
+
+    transform:translateY(-5px);
+
+}
+
+.copyright{
+
+    max-width:1200px;
+
+    margin:40px auto 0;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding-top:22px;
+
+    text-align:center;
+
+    color:#dbe8f4;
+
+    font-size:.95rem;
+
+}
+
+/* ===========================
+   GLOBAL ANIMATIONS
+=========================== */
+
+.banner-box,
+.post-section,
+.church-week,
+body > div:first-of-type{
+
+    animation:fadeUp .6s ease both;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Smooth image loading */
+
+.posted-img{
+
+    animation:imageFade .8s ease;
+
+}
+
+@keyframes imageFade{
+
+    from{
+
+        opacity:.3;
+
+        transform:scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   SELECTION COLOR
+=========================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* ===========================
+   FOCUS ACCESSIBILITY
+=========================== */
+
+button:focus,
+a:focus,
+textarea:focus{
+
+    outline:none;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.footer-content{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+    body{
+
+        font-size:15px;
+
+    }
+
+    .church-week{
+
+        padding:25px;
+
+    }
+
+    .weekly-post{
+
+        gap:25px;
+
+    }
+
+    .banner-box{
+
+        width:95%;
+
+    }
+
+    .footer{
+
+        padding:55px 25px 25px;
+
+    }
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .footer-contact p{
+
+        justify-content:center;
+
+    }
+
+    .social-icons{
+
+        justify-content:center;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .page-title h2{
+
+        font-size:1.45rem;
+
+    }
+
+    .page-title span{
+
+        font-size:.85rem;
+
+    }
+
+    textarea{
+
+        min-height:120px;
+
+    }
+
+    .title{
+
+        font-size:1.4rem;
+
+    }
+
+    .description{
+
+        font-size:.95rem;
+
+    }
+
+}
+
+/* ===========================
+   SMALL POLISH
+=========================== */
+
+button,
+a,
+textarea{
+
+    transition:
+    background .3s,
+    color .3s,
+    transform .3s,
+    box-shadow .3s,
+    border-color .3s;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+hr{
+
+    border:none;
+
+    border-top:1px solid var(--border);
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
