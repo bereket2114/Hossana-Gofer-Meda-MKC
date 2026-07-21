@@ -5,12 +5,14 @@ const postController = require('../controller/feedPageController')
 const { ensureAuth } = require('../middleware/ensureAuth')
 
 
-//Set up Admin page 
+//Set up Admin page and this ensureAuth block the user to not get this route page without signup or login.
+//even if the user type this route page by hand(keyboard) , he doesn't get this page.
 router.get('/adminPostPage', ensureAuth, postController.getAdminPage)
+router.get('/casualPost', ensureAuth , postController.getCasualPage)
 
-// now i am creating my page route
+// This is my main public feed page route
 router.get('/', postController.getPost)
-router.get('/casualPost', postController.getCasualPage)
+
 
 router.post('/post', postController.createPost)
 //this middleware help me to upload media file from browser and this "photo" is the name of my input attribute from html file input tag.
