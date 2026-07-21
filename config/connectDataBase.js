@@ -6,7 +6,7 @@ let isConnected
 const connectDB  = async()=>{
     if(isConnected){
         console.log('Using existing database connection')
-        return;
+        return
     }
     try{
         const conn = await mongoose.connect(process.env.DB_String)
