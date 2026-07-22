@@ -71,7 +71,7 @@ module.exports = {
 
         try{
             const searchName = req.query.name
-            const users = await dataBase.find({
+            const users = await dataBase.find({ userId: req.user.id,
             memFullName:{$regex: searchName, $options: "i"}
         })
             res.json(users)
