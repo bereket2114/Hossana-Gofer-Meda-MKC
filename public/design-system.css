@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+  --ink: #16231d;
+  --muted: #66736b;
+  --forest: #164c38;
+  --green: #267453;
+  --sage: #dce9df;
+  --cream: #f8f7f1;
+  --paper: #ffffff;
+  --gold: #d4a938;
+  --line: #dfe8e1;
+  --danger: #b94242;
+  --shadow: 0 18px 50px rgba(21, 59, 42, .12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--cream); }
+body::before, body::after { animation: none; }
+body h1, body h2, body h3 { font-family: 'Playfair Display', serif; }
+body a { text-underline-offset: 3px; }
+button, input, select, textarea { font: inherit; }
+
+/* Shared masthead */
+body:not(.page-comment) header {
+  position: relative;
+  padding: 16px clamp(20px, 6vw, 88px);
+  min-height: 88px;
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  color: var(--ink);
+}
+body:not(.page-comment) .logo { border-color: var(--gold); box-shadow: none; }
+body:not(.page-comment) nav { gap: 8px; flex-wrap: wrap; }
+body:not(.page-comment) nav a,
+body:not(.page-comment) header a {
+  color: var(--forest); border: 1px solid transparent; background: transparent;
+  padding: 9px 14px; border-radius: 999px; font-size: .92rem; font-weight: 700;
+}
+body:not(.page-comment) nav a:hover,
+body:not(.page-comment) header a:hover { background: #edf5ef; color: var(--forest); transform: none; box-shadow: none; }
+
+/* Landing page */
+body.page-home { background: #f3f5ef; color: var(--ink); }
+.page-home header { position: absolute !important; background: transparent !important; border: 0 !important; width: 100%; z-index: 2; }
+.page-home .logo span { color: var(--forest); font-size: 1rem; font-weight: 700; }
+.page-home main { min-height: 680px; padding: 150px 8% 96px; position: relative; overflow: hidden; background: linear-gradient(105deg, rgba(244,247,239,.97) 0 48%, rgba(244,247,239,.45) 72%), url('/main-cover.jpg') 86% center / cover; }
+.page-home main::after { content: ''; width: 360px; height: 360px; position: absolute; border: 1px solid rgba(38,116,83,.18); border-radius: 50%; left: -110px; bottom: -200px; }
+.page-home .mainBox { max-width: 710px; text-align: left; margin: 0; animation: none; position: relative; z-index: 1; }
+.page-home .badge { color: var(--green); background: #e6f0e9; border: 0; letter-spacing: .04em; font-size: .8rem; text-transform: uppercase; font-weight: 700; padding: 8px 13px; margin-bottom: 20px; }
+.page-home .mainBox h1 { color: var(--forest); font-size: clamp(2.9rem, 6vw, 5.3rem); line-height: 1.04; letter-spacing: -.045em; margin-bottom: 22px; }
+.page-home .mainBox h1 span { display: block; color: var(--gold); font-size: .47em; letter-spacing: -.02em; margin-top: 13px; }
+.page-home .mainBox > p { max-width: 600px; color: #526158; font-size: 1.08rem; line-height: 1.75; margin-bottom: 28px; }
+.page-home .year-theme { max-width: 560px; margin: 0; padding: 21px 24px; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 0 14px 14px 0; background: rgba(255,255,255,.68); box-shadow: none; }
+.page-home .year-theme h3 { color: var(--forest); margin-bottom: 6px; letter-spacing: .06em; font-family: 'DM Sans', sans-serif; font-size: .75rem; }
+.page-home .year-theme p { color: var(--ink); font-size: 1rem; line-height: 1.5; margin: 0 0 7px; }
+.page-home .year-theme span { background: transparent; color: var(--green); padding: 0; font-size: .82rem; }
+.page-home .featureBlock { max-width: 1240px; margin: -44px auto 0; padding: 0 28px 88px; position: relative; z-index: 1; gap: 18px; }
+.page-home .feature { min-height: 278px; text-align: left; padding: 30px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); cursor: default; }
+.page-home .feature:hover, .page-home #faithHub:hover { transform: translateY(-5px); border-color: #b6cfbd; box-shadow: 0 22px 45px rgba(21,59,42,.16); }
+.page-home .feature::before, .page-home #faithHub::after { display: none; }
+.page-home #faithHub { transform: none; background: var(--forest); border-color: var(--forest); color: white; }
+.page-home .feature i { width: 48px; height: 48px; font-size: 1.25rem; margin: 0 0 22px; color: var(--forest); background: #e8f1e9; box-shadow: none; }
+.page-home #faithHub i { color: var(--forest); background: #f3e6bf; }
+.page-home .feature h2 { font-size: 1.7rem; margin-bottom: 10px; }
+.page-home .feature p { color: #657168; font-size: .95rem; line-height: 1.65; margin-bottom: 22px; }
+.page-home #faithHub p { color: #d6e5db; }
+.page-home .feature a { padding: 0; background: transparent; color: var(--green); font-weight: 700; border-radius: 0; }
+.page-home #faithHub a { color: #f2d27b; }
+.page-home footer { margin: 0; padding: 62px 20px; background: #102d22; color: #e5eee8; }
+.page-home footer h2 { font-size: 2rem; }
+.page-home .socials a { width: 46px; height: 46px; background: rgba(255,255,255,.1); color: #fff; font-size: 1.1rem; }
+.page-home .socials a:hover { background: var(--gold); transform: translateY(-3px); }
+.page-home footer p { color: #b9cfc0; }
+
+/* Member portal landing */
+body.page-portal { background: var(--cream); min-height: 100vh; }
+.page-portal main { max-width: 1280px; min-height: auto; margin: 0 auto; padding: 74px clamp(24px, 7vw, 90px); gap: clamp(32px, 7vw, 100px); }
+.page-portal .logo-area h2 { color: var(--forest); font-size: 1.1rem; margin: 0; }
+.page-portal .logo-area p { color: var(--muted); font-size: .82rem; }
+.page-portal .left h1 { color: var(--forest); font-size: clamp(2.8rem, 5vw, 4.65rem); letter-spacing: -.05em; }
+.page-portal .left > p { color: var(--muted); }
+.page-portal .badge { color: var(--green); background: #e7f1e9; font-weight: 700; }
+.page-portal .buttons { gap: 12px; }
+.page-portal .register-btn, .page-portal .login-btn { border-radius: 8px; padding: 13px 22px; font-weight: 700; }
+.page-portal .register-btn { background: var(--forest); color: white; }
+.page-portal .login-btn { border: 1px solid #bfcfc3; color: var(--forest); background: white; }
+.page-portal .verse { background: white; border: 1px solid var(--line); border-left: 4px solid var(--gold); color: var(--ink); box-shadow: var(--shadow); }
+.page-portal .verse i { color: var(--gold); }
+.page-portal .right img { height: min(590px, 58vw); border-radius: 18px; filter: none; animation: none; }
+.page-portal footer { background: transparent; color: var(--muted); padding: 24px; }
+
+/* Authentication */
+body.page-auth { min-height: 100vh; align-items: stretch; color: var(--ink); background: linear-gradient(115deg, rgba(245,248,241,.92), rgba(245,248,241,.76)), url('/main-cover.jpg') center / cover fixed; }
+.page-auth header { background: rgba(255,255,255,.83); }
+.page-auth .welcome { margin: 54px auto 24px; max-width: 650px; color: var(--ink); }
+.page-auth .welcome h2 { color: var(--forest); font-size: clamp(1.9rem, 4vw, 2.8rem); text-transform: none; }
+.page-auth .welcome i { color: var(--gold); font-size: 2rem; margin: 10px 0; }
+.page-auth .welcome p { color: var(--muted); font-size: .95rem; }
+.page-auth form { color: var(--ink); background: rgba(255,255,255,.94); border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 16px; margin: 0 auto 70px; padding: 32px; }
+.page-auth form h1 { color: var(--forest); font-size: 2rem; }
+.page-auth label { color: #35453a; font-size: .86rem; font-weight: 700; }
+.page-auth input, .page-auth select { color: var(--ink); background: #f7faf7; border: 1px solid #d7e2d9; border-radius: 8px; padding: 13px 14px; }
+.page-auth input::placeholder { color: #8b988e; }
+.page-auth input:focus, .page-auth select:focus { background: white; border-color: var(--green); box-shadow: 0 0 0 3px rgba(38,116,83,.13); }
+.page-auth select { background-image: none; }
+.page-auth select option { color: var(--ink); background: white; }
+.page-auth input[type=submit], .page-auth form button { background: var(--forest); color: white; border-radius: 8px; margin-top: 16px; padding: 13px; }
+.page-auth input[type=submit]:hover, .page-auth form button:hover { background: var(--green); transform: translateY(-2px); box-shadow: 0 9px 18px rgba(22,76,56,.2); }
+.page-auth .form-links a, .page-auth form > a { color: var(--green); font-weight: 700; }
+.page-auth .alert { background: #fff0ef; border: 1px solid #f0c4c0; color: #9f3029; }
+
+/* Data management pages */
+body.page-management { min-height: 100vh; background: #f5f7f3; padding-bottom: 72px; }
+.page-management header .logo-area h2 { color: var(--forest); font-family: 'DM Sans', sans-serif; font-size: 1.05rem; }
+.page-management .search { max-width: 1160px; margin: 34px auto 18px; padding: 8px; gap: 8px; background: white; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 22px rgba(21,59,42,.07); }
+.page-management .search input { padding: 11px 12px; box-shadow: none; border: 0; color: var(--ink); }
+.page-management .search input:focus { border: 0; box-shadow: none; }
+.page-management .search button { border-radius: 7px; padding: 11px 18px; background: var(--forest); font-weight: 700; }
+.page-management .container { max-width: 1160px; padding: clamp(20px, 4vw, 42px); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 34px rgba(21,59,42,.08); }
+.page-management .container h1 { color: var(--forest); font-size: clamp(1.7rem, 4vw, 2.5rem); letter-spacing: -.025em; text-align: left; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.page-management #memberForm, .page-management form { background: #f7faf7; border: 1px solid var(--line); box-shadow: none; border-radius: 10px; padding: 18px; gap: 12px; }
+.page-management #memberForm input, .page-management #memberForm select, .page-management form input, .page-management form select { background: white; border: 1px solid #d7e2d9; border-radius: 7px; padding: 12px; }
+.page-management #memberForm button, .page-management form button { min-height: 48px; background: var(--forest); border-radius: 7px; }
+.page-management .table-container { border: 1px solid var(--line); border-radius: 10px; box-shadow: none; }
+.page-management table { min-width: 760px; }
+.page-management caption { text-align: left; padding: 18px 20px; color: var(--forest); font-family: 'DM Sans', sans-serif; font-size: 1rem; }
+.page-management thead, .page-management thead th, .page-management thead th[style] { background: #e7f0e9 !important; color: var(--forest); }
+.page-management thead th { padding: 14px 16px; text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
+.page-management tbody td { padding: 15px 16px; text-align: left; color: #425147; }
+.page-management tbody tr:nth-child(even) { background: #fbfcfa; }
+.page-management tbody tr:hover { background: #f0f7f1; transform: none; }
+.page-management .trash { text-align: right; }
+.page-management .trashBtn { background: #fff3f2; border: 1px solid #efcbc8; color: var(--danger); border-radius: 7px; padding: 8px 11px; }
+.page-management .trashBtn:hover { background: var(--danger); color: white; transform: none; }
+.page-management .amount { margin: 24px 0 0; width: 210px; background: var(--forest); border-radius: 10px; box-shadow: none; padding: 18px; }
+.page-management .amount p { font-size: .85rem; }
+.page-management .amount h2 { font-family: 'DM Sans', sans-serif; font-size: 2.4rem; }
+.page-management .next, .page-management .back { width: auto; margin: 25px 0 0; padding: 20px; text-align: left; background: #f4ead0; border-radius: 10px; box-shadow: none; }
+.page-management .next p, .page-management .back p { color: #5f501f; font-size: .92rem; }
+.page-management .next button, .page-management .back button { background: var(--forest); border-radius: 7px; padding: 11px 18px; font-size: .9rem; }
+
+/* FaithHub feed */
+body.page-feed, body.page-admin { background: #f6f7f2; color: var(--ink); }
+.page-feed header, .page-admin header { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; }
+.page-feed .logo, .page-admin .logo { width: 52px; height: 52px; }
+.page-feed .page-title h2, .page-admin .page-title h2 { margin: 0; color: var(--forest); font-size: 1.55rem; }
+.page-feed .page-title span, .page-admin .page-title span { color: var(--muted); font-size: .84rem; }
+.page-feed .welcome-note, .page-admin body > div:not(.church-week):not(.casual-post) { max-width: 800px; margin: 42px auto 28px; padding: 0 24px; text-align: center; color: var(--muted); line-height: 1.75; }
+.page-feed .weekly-post { max-width: 980px; margin: 0 auto 38px; padding: 0 24px; display: grid; gap: 20px; }
+.page-feed .post-section { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; box-shadow: 0 8px 24px rgba(21,59,42,.06); }
+.page-feed .post-section li { list-style: none; padding: 13px; border-radius: 9px; background: #f7faf7; }
+.page-feed .post-section li p { margin: 7px 0 0; color: #445248; font-size: .92rem; line-height: 1.45; }
+.page-feed .day-badge { display: inline-block; padding: 4px 8px; border-radius: 999px; color: var(--forest); background: #e4efe6; font-size: .69rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.page-feed .created-date { padding: 10px 4px; align-self: center; color: var(--muted); }
+.page-feed .weekly-actions, .page-feed .post-actions .weekly-actions { width: auto; margin: 0; padding: 8px 10px; border: 0; background: transparent; color: var(--green); font-weight: 700; cursor: pointer; }
+.page-feed .delete-Btn, .page-feed .casual-delete-Btn { color: var(--danger); }
+.page-feed .admin-badge { color: #835f05; background: #fff6d9; border-radius: 999px; }
+.page-feed .banner-box { max-width: 760px; margin: 0 auto 28px; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 25px; box-shadow: 0 8px 24px rgba(21,59,42,.06); }
+.page-feed .banner-box .title { color: var(--forest); font-size: 2rem; margin-bottom: 10px; }
+.page-feed .banner-box .description { color: var(--muted); line-height: 1.65; }
+.page-feed .posted-img { width: 100%; max-height: 490px; object-fit: cover; border-radius: 10px; margin: 18px 0 8px; }
+.page-feed .post-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; color: var(--muted); }
+.page-feed .post-actions .like-btn, .page-feed .comment-btn { padding: 8px 10px; border: 0; background: #f2f7f3; border-radius: 7px; color: var(--green); text-decoration: none; }
+.page-feed .footer, .page-admin .footer { margin-top: 72px; padding: 56px clamp(24px, 7vw, 90px) 20px; background: #102d22; color: #d8e7dd; }
+.page-feed .footer-content, .page-admin .footer-content { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 44px; }
+.page-feed .footer h3, .page-admin .footer h3 { color: white; margin: 12px 0; }
+.page-feed .footer p, .page-admin .footer p, .page-feed .footer a, .page-admin .footer a { color: #b8cfc0; line-height: 1.65; }
+.page-feed .footer-links { display: grid; align-content: start; gap: 10px; }
+.page-feed .footer h4, .page-admin .footer h4 { color: #f0ce6d; margin-bottom: 12px; }
+.page-feed .footer-logo, .page-admin .footer-logo { width: 54px; border-radius: 50%; }
+.page-feed .social-icons { display: flex; gap: 14px; margin-top: 14px; }
+.page-feed .copyright, .page-admin .copyright { border-top: 1px solid rgba(255,255,255,.12); margin-top: 34px; padding-top: 18px; color: #9fb9a8; text-align: center; font-size: .84rem; }
+
+/* Admin post composer and image post form */
+.page-admin > div:not(.church-week):not(.casual-post) { max-width: 780px; }
+.page-admin .church-week { max-width: 940px; margin: 0 auto; padding: 0 24px; }
+.page-admin .church-week form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 20px; background: white; border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+.page-admin .church-week textarea { resize: vertical; min-height: 100px; padding: 13px; color: var(--ink); background: #f8faf8; border: 1px solid var(--line); border-radius: 8px; }
+.page-admin .church-week textarea:focus { outline: 3px solid rgba(38,116,83,.13); border-color: var(--green); }
+.page-admin .post-icon { display: inline-grid; place-items: center; min-width: 48px; min-height: 48px; border: 0; border-radius: 8px; background: var(--forest); color: white; text-decoration: none; }
+.page-admin .casual-post { max-width: 940px; margin: 16px auto 0; padding: 0 24px; }
+
+body.page-banner { min-height: 100vh; background: #f4f7f0; }
+.page-banner .logo-area h2 { color: var(--forest); font-size: 1.2rem; margin: 0 0 3px; }
+.page-banner .logo-area p { max-width: 630px; color: var(--muted); font-size: .85rem; line-height: 1.45; }
+.page-banner .banner { padding: 62px 24px; }
+.page-banner .post-card { width: min(650px, 100%); margin: auto; padding: 34px; background: white; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+.page-banner .card-title { display: flex; align-items: center; gap: 12px; color: var(--forest); }
+.page-banner .card-title i { color: var(--gold); font-size: 1.3rem; }
+.page-banner .card-title h1 { font-size: 2rem; }
+.page-banner .subtitle { color: var(--muted); line-height: 1.6; margin: 14px 0 24px; }
+.page-banner .post-card form { width: auto; margin: 0; padding: 0; background: transparent; border: 0; box-shadow: none; }
+.page-banner .input-group { display: flex; align-items: center; gap: 10px; padding: 0 13px; background: #f7faf7; border: 1px solid var(--line); border-radius: 8px; }
+.page-banner .input-group i { color: var(--green); }
+.page-banner .input-group input, .page-banner textarea { width: 100%; padding: 13px 0; color: var(--ink); background: transparent; border: 0; outline: 0; }
+.page-banner .post-card textarea { margin-top: 12px; padding: 13px; background: #f7faf7; border: 1px solid var(--line); border-radius: 8px; resize: vertical; }
+.page-banner .upload-btn { border: 1px dashed #a9bfad; border-radius: 8px; padding: 16px; margin: 12px 0; color: var(--green); }
+.page-banner .submit-btn { width: 100%; border: 0; border-radius: 8px; padding: 13px; background: var(--forest); color: white; font-weight: 700; }
+
+/* Comments */
+body.page-comment { min-height: 100vh; padding: 38px 20px 110px; background: #f4f7f2; }
+.page-comment .comment-box, .page-comment > p { max-width: 700px; margin: 0 auto 12px; padding: 18px; background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 18px rgba(21,59,42,.06); }
+.page-comment .comment-box > p { margin: 0 0 14px; line-height: 1.55; }
+.page-comment .footer { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: .78rem; }
+.page-comment .like-btn { border: 0; background: #f1f7f2; border-radius: 7px; padding: 7px 10px; color: var(--green); cursor: pointer; }
+.page-comment form { display: flex; gap: 9px; position: fixed; z-index: 3; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(700px, calc(100% - 40px)); margin: 0; padding: 10px; background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.page-comment form input[name=comment] { flex: 1; min-width: 0; padding: 11px; border: 0; outline: none; }
+.page-comment form input[type=submit] { border: 0; border-radius: 7px; padding: 10px 15px; background: var(--forest); color: white; font-weight: 700; }
+
+@media (max-width: 760px) {
+  body:not(.page-comment) header { min-height: auto; flex-direction: column; gap: 12px; padding: 14px 20px; text-align: center; }
+  .page-home main { min-height: 630px; background: linear-gradient(100deg, rgba(244,247,239,.97), rgba(244,247,239,.8)), url('/main-cover.jpg') center / cover; }
+  .page-home .mainBox { text-align: center; }
+  .page-home .year-theme { text-align: left; }
+  .page-home .featureBlock { grid-template-columns: 1fr; margin-top: -26px; }
+  .page-portal main { grid-template-columns: 1fr; text-align: left; padding-top: 44px; }
+  .page-portal .buttons { justify-content: flex-start; }
+  .page-portal .right { display: none; }
+  .page-auth .welcome { padding: 0 20px; margin-top: 36px; }
+  .page-auth form { width: calc(100% - 32px); padding: 26px 20px; }
+  .page-management .search { width: calc(100% - 32px); }
+  .page-management .container { width: calc(100% - 32px); }
+  .page-feed header, .page-admin header { display: flex; }
+  .page-feed .page-title, .page-admin .page-title { order: -1; }
+  .page-feed .post-section { grid-template-columns: 1fr; }
+  .page-feed .weekly-post, .page-feed .banner-box { padding-left: 16px; padding-right: 16px; }
+  .page-feed .footer-content, .page-admin .footer-content { grid-template-columns: 1fr; gap: 25px; }
+  .page-admin .church-week form { grid-template-columns: 1fr; }
+  .page-banner .logo-area { text-align: left; }
+  .page-banner .logo-area p { display: none; }
+  .page-banner .post-card { padding: 24px 18px; }
+}

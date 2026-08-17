@@ -114,8 +114,6 @@ createCasualPost: async (req, res) => {
       streamifier.createReadStream(resizedBuffer).pipe(stream);
     });
 
-    console.log(result);
-
     // 3. Save to database
     await casualDB.create({
       Title: req.body.title,
